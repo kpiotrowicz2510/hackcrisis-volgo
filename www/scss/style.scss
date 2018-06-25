@@ -1,0 +1,147 @@
+$wetAsphalt: #34495e;
+$asbestos: #7f8c8d;
+$peterRiver: #3498db;
+$belizeHole: #2980b9;
+$silver: #bdc3c7;
+
+* {
+    box-sizing: border-box;
+}
+img {
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-size: 62.5%;
+    font-family: Montserrat;
+}
+
+.user {
+    margin: 30px 0 0 0;
+    overflow: auto;
+
+    .name {
+        text-align: center;
+        color: $wetAsphalt;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .location {
+        margin: 2px 0 0 0;
+        text-align: center;
+        color: $asbestos;
+        font-size: 0.75rem;
+    }
+
+    .avatar {
+        margin: 20px 0;
+        position: relative;
+        height: 120px;
+
+        .photo {
+            width: 100px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50px) translateY(-50px);
+            border-radius: 50%;
+        }
+
+        .country {
+            width: 30px;
+            height: 20px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(20px) translateY(30px);
+            box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    .nickname {
+        color: $belizeHole;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1rem;
+    }
+
+    .stats {
+        text-align: center;
+        margin: 40px 0 20px 0;
+
+        .stat {
+            width: 50%;
+            float: left;
+
+            .desc {
+                color: $silver;
+                text-transform: uppercase;
+                font-weight: 500;
+                font-size: 0.9rem;
+                margin: 0 0 4px 0;
+            }
+
+            .amount {
+                font-size: 1rem;
+                color: $wetAsphalt;
+                letter-spacing: 3px;
+                font-weight: 600;
+            }
+        }
+
+    }
+}
+
+.links {
+    margin: 20px 0 0 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+
+    .linkSpacer {
+        background: $silver;
+        height: 1px;
+        width: calc(100% - 20px);
+        margin: 0 auto;
+    }
+
+    .link {
+        text-decoration: none;
+        padding: 8px 10px;
+        display: block;
+        overflow: auto;
+
+        .linkName {
+            color: $peterRiver;
+            font-size: 0.9rem;
+            float: left;
+            line-height: 22px;
+        }
+
+        .linkValue {
+            color: $asbestos;
+            float: right;
+            font-size: 0.9rem;
+            line-height: 22px;
+            padding: 0 10px 0 0;
+
+            img {
+                height: 20px;
+                line-height: 22px;
+
+            }
+        }
+
+        .linkArrow {
+            float: right;
+
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
