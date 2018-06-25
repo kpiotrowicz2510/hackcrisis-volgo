@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+Ôªø<!DOCTYPE html>
 <html lang="pl-PL">
 <head>
     <meta charset="utf-8">
@@ -7,24 +7,64 @@
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Hello World</title>
+    <title>PharmaGO</title>
 </head>
 <body>
-    <div class="app">
+    <div class="app initsection" style="display: block;">
+        <div id="map"></div>
+        <script>
+            var map;
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: { lat: -34.397, lng: 150.644 },
+                    zoom: 8,
+                    disableDefaultUI: true
+                });
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhyXfKuDiBfle8lVDqTCPjzO8S8h3In3A&callback=initMap" async defer></script>
+
+        <div id="createOrder">
+            <span class="content">
+                Stw√≥rz zam√≥wnienie
+            </span>
+            <div class="icon">
+                <img src="img/order.png" alt="order">
+            </div>
+            <div class="separator">
+
+            </div>
+        </div>
+
+        <div class="mapLinks">
+            <a class="link" href="#" data-section="usersection">
+                <img src="img/cogs.png" alt="cogs">
+            </a>
+
+            <a class="link" href="#" data-function="findMe">
+                <img src="img/finder.png" alt="finder">
+            </a>
+        </div>
+
+    </div>
+    <div class="app usersection">
+        <a href="#" data-section="initsection" data-direction="right" class="close link">
+            <img src="img/close.png" alt="close">
+        </a>
         <div class="user">
             <div class="name">Anna Jurkiewicz</div>
             <div class="location">Gdynia, Polska</div>
 
             <div class="avatar">
-                <img class="photo" src="img/avatar.jpg" alt="Anna Jurkiewicz" />
-                <img class="country" src="img/poland.png" alt="Polska" />
+                <img class="photo" src="img/avatar.jpg" alt="Anna Jurkiewicz">
+                <img class="country" src="img/poland.png" alt="Polska">
             </div>
 
             <div class="nickname">@spokoanka</div>
 
             <div class="stats">
                 <div class="stat">
-                    <div class="desc">ZamÛwienia</div>
+                    <div class="desc">Zam√≥wienia</div>
                     <div class="amount">42</div>
                 </div>
 
@@ -54,14 +94,14 @@
 
                     </div>
                     <div class="linkName">
-                        Metoda p≥atnoúci
+                        Metoda p≈Çatno≈õci
                     </div>
                     <div class="linkArrow">
-                        <img src="img/forward.png" alt="forward" />
+                        <img src="img/forward.png" alt="forward">
                     </div>
                     <div class="linkValue">
                         &bull;&bull;&bull;&bull; 6870
-                        <img src="img/mastercard.jpg" alt="mastercard" />
+                        <img src="img/mastercard.jpg" alt="mastercard">
                     </div>
                 </a>
 
@@ -77,7 +117,7 @@
                         Numer telefonu
                     </div>
                     <div class="linkArrow">
-                        <img src="img/forward.png" alt="forward" />
+                        <img src="img/forward.png" alt="forward">
                     </div>
                     <div class="linkValue">
                         600 451 232
@@ -96,7 +136,7 @@
                         Adres
                     </div>
                     <div class="linkArrow">
-                        <img src="img/forward.png" alt="forward" />
+                        <img src="img/forward.png" alt="forward">
                     </div>
                     <div class="linkValue">
                         ul. 3 Maja, Gdynia
@@ -112,10 +152,10 @@
 
                     </div>
                     <div class="linkName">
-                        Moje zamÛwnienia
+                        Moje zam√≥wnienia
                     </div>
                     <div class="linkArrow">
-                        <img src="img/forward.png" alt="forward" />
+                        <img src="img/forward.png" alt="forward">
                     </div>
                     <div class="linkValue">
                     </div>
@@ -133,7 +173,7 @@
                         Kod promocyjny
                     </div>
                     <div class="linkArrow">
-                        <img src="img/forward.png" alt="forward" />
+                        <img src="img/forward.png" alt="forward">
                     </div>
                     <div class="linkValue">
                     </div>
@@ -143,5 +183,6 @@
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/navigation.js"></script>
 </body>
 </html>
