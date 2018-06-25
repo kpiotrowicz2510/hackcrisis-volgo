@@ -38,7 +38,8 @@ function getProduct(id) {
     });
 }
 
-function loadOneProduct(data){
+function loadOneProduct(data) {
+    $('#productImage').attr("src", data.image);
     $("#productTitle").text(data.name);
     $("#productPrice").text(data.price);
     $("#productDescription").text(data.description);
