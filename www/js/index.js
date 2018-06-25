@@ -55,65 +55,48 @@ function loadOneProduct(data) {
     $("#productTitle").text(data.name);
     $("#productPrice").text(data.price);
     $("#productDescription").text(data.description);
-    $("#productAvailability").text("Dostępność: "+data.availableAmount + " szt.");
+    $('.addToCart').data('id', data.id);
 }
 
+function addProductToProductList(product, listID) {
+
+    var a = document.createElement("a");
+    a.href = '#';
+    a.dataset.section = 'productsection';
+    a.dataset.function = 'getProduct';
+    a.dataset.data = product.id;
+    a.className = "productsItem";
+    var img = document.createElement("img");
+    img.src = product.image;
+    a.appendChild(img);
+    var name = document.createElement("h2");
+    name.innerHTML = product.name;
+    a.appendChild(name);
+
+    var span = document.createElement("span");
+    if (product.priceDiscount != 0.0) {
+        span.innerHTML = "<strike>" + parseFloat(Math.round(product.price * 100) / 100).toFixed(2) + " zł</strike> " + parseFloat(Math.round(product.priceDiscount * 100) / 100).toFixed(2) + " zł";
+    }
+    else {
+        span.innerHTML = parseFloat(Math.round(product.price * 100) / 100).toFixed(2) + " zł";
+    }
+    a.appendChild(span);
+
+    document.getElementById(listID).appendChild(a);
+}
+
+
 function loadProducts(data){
-    for(var i = 0; i<2; i++){
-        var a = document.createElement("a");
-        a.href = '#';
-        a.dataset.section = 'productsection';
-        a.dataset.function = 'getProduct';
-        a.dataset.data = data[i].id;
-        a.className = "productsItem";
-        var img = document.createElement("img");
-        img.src = data[i].image;
-        a.appendChild(img);
-        var name = document.createElement("h2");
-        name.innerHTML = data[i].name;
-        a.appendChild(name);
-        var span = document.createElement("span");
-        span.innerHTML = parseFloat(Math.round(data[i].price * 100) / 100).toFixed(2) + " zł";
-        a.appendChild(span);
-        document.getElementById("products1").appendChild(a);
+    for (var i = 0; i < 2; i++){
+        addProductToProductList(data[i], "products1");
     }
 
-    for(var i = 3; i<6; i++){
-        var a = document.createElement("a");
-        a.href = '#';
-        a.dataset.section = 'productsection';
-        a.dataset.function = 'getProduct';
-        a.dataset.data = data[i].id;
-        a.className = "productsItem";
-        var img = document.createElement("img");
-        img.src = data[i].image;
-        a.appendChild(img);
-        var name = document.createElement("h2");
-        name.innerHTML = data[i].name;
-        a.appendChild(name);
-        var span = document.createElement("span");
-        span.innerHTML = parseFloat(Math.round(data[i].price * 100) / 100).toFixed(2) + " zł";
-        a.appendChild(span);
-        document.getElementById("products2").appendChild(a);
+    for (var i = 3; i < 6; i++) {
+        addProductToProductList(data[i], "products2");
     }
 
-    for(var i = 6; i<8; i++){
-        var a = document.createElement("a");
-        a.href = '#';
-        a.dataset.section = 'productsection';
-        a.dataset.function = 'getProduct';
-        a.dataset.data = data[i].id;
-        a.className = "productsItem";
-        var img = document.createElement("img");
-        img.src = data[i].image;
-        a.appendChild(img);
-        var name = document.createElement("h2");
-        name.innerHTML = data[i].name;
-        a.appendChild(name);
-        var span = document.createElement("span");
-        span.innerHTML = parseFloat(Math.round(data[i].price * 100) / 100).toFixed(2) + " zł";
-        a.appendChild(span);
-        document.getElementById("products3").appendChild(a);
+    for (var i = 6; i < 8; i++) {
+        addProductToProductList(data[i], "products3");
     }
 }
 
