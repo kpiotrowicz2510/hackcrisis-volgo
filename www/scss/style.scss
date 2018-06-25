@@ -432,3 +432,56 @@ body {
         }
     }
 }
+
+.paymentCards {
+
+    .card {
+        background: $wetAsphalt;
+        border-radius: 10px;
+        width: 80vw;
+        position: relative;
+        height: 175px;
+        margin: 35px auto 10px;
+        font-size: 0.8rem;
+        color: white;
+        box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.3);
+
+        img {
+            height: 30px;
+            margin: 15px 5px 5px 15px;
+        }
+
+        .cardNumber {
+            text-align: center;
+            font-size: 1.3rem;
+            margin: 15px 0;
+        }
+
+        .title {
+            color: $silver;
+            text-transform: uppercase;
+            padding-bottom: 5px;
+            font-size: 0.7rem;
+        }
+
+        .value {
+            text-transform: uppercase;
+            font-size: 1rem;
+        }
+
+        .cardHolder, .cardExpiry {
+            float: left;
+            width: 60%;
+            padding: 20px 20px 10px 20px;
+        }
+
+        .cardExpiry {
+            width: 40%;
+            text-align: right;
+        }
+    }
+
+    .creditFont {
+        font-family: Inconsolata;
+    }
+}
