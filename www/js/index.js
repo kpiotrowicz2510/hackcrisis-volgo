@@ -49,6 +49,7 @@ function loadProducts(data){
         var div = document.createElement("div");
         div.className = "productsItem";
         var img = document.createElement("img");
+        img.src = data[i].image;
         div.appendChild(img);
         var name = document.createElement("h2");
         name.innerHTML = data[i].name + " Cena:"+data[i].price+" zł";
@@ -60,6 +61,7 @@ function loadProducts(data){
         var div = document.createElement("div");
         div.className = "productsItem";
         var img = document.createElement("img");
+        img.src = data[i].image;
         div.appendChild(img);
         var name = document.createElement("h2");
         name.innerHTML = data[i].name + " Cena:"+data[i].price+" zł";
@@ -71,6 +73,7 @@ function loadProducts(data){
         var div = document.createElement("div");
         div.className = "productsItem";
         var img = document.createElement("img");
+        img.src = data[i].image;
         div.appendChild(img);
         var name = document.createElement("h2");
         name.innerHTML = data[i].name + " Cena:"+data[i].price+" zł";
