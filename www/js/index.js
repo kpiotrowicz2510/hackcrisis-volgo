@@ -156,10 +156,13 @@ function loadOrderProduct(data,amount){
 }
 
 function addNewOrderToBasket(id,amount){
+    var objectx = JSON.stringify({IdProduct:id, Amount:amount});
     $.ajax({
+        dataType : "json",
+        contentType: "application/json; charset=utf-8",
         method: "POST",
         url: GLOBALS_siteUrl+"basket/products",
-        data:{IdProduct:id, Amount:amount}
+        data:objectx
     }).done(function(response) {
         
     });
