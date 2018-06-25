@@ -28,8 +28,20 @@ function getProducts(){
     });
 }
 
-function getProduct(id) {
-    console.log(id);
+function findMe(){
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+         var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+         };
+
+        map.setCenter(pos);
+        });
+    } 
+}
+
+function getProduct(id){
     $.ajax({
         method: "GET",
         url: GLOBALS_siteUrl+"products/"+id,
