@@ -36,7 +36,8 @@ function findMe(){
             lng: position.coords.longitude
          };
 
-        map.setCenter(pos);
+            map.setCenter(pos);
+            map.setZoom(15);
         });
     } 
 }
