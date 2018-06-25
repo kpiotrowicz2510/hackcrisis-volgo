@@ -36,7 +36,8 @@ function findMe(){
             lng: position.coords.longitude
          };
 
-        map.setCenter(pos);
+            map.setCenter(pos);
+            map.setZoom(15);
         });
     } 
 }
@@ -55,7 +56,7 @@ function loadOneProduct(data) {
     $("#productTitle").text(data.name);
     $("#productPrice").text(parseFloat(Math.round(data.price * 100) / 100).toFixed(2) + " zł");
     $("#productDescription").text(data.description);
-    $("#productAvailability").text("Dostępność: "+data.availableAmount + " szt.");
+    $('.addToCart').data('id', data.id);
 }
 
 function addProductToProductList(product, listID) {
@@ -139,10 +140,13 @@ function loadOrderProduct(data,amount){
 }
 
 function addNewOrderToBasket(id,amount){
+    var objectx = JSON.stringify({IdProduct:id, Amount:amount});
     $.ajax({
+        dataType : "json",
+        contentType: "application/json; charset=utf-8",
         method: "POST",
         url: GLOBALS_siteUrl+"basket/products",
-        data:{IdProduct:id, Amount:amount}
+        data:objectx
     }).done(function(response) {
         
     });

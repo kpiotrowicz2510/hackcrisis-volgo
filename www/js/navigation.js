@@ -8,6 +8,12 @@ let currentIndex = 1;
             $('.modal').fadeOut();
             return false;
         }
+        else if ($(this).hasClass('addToCart')) {
+
+            let id = $(this).data('id');
+            addNewOrderToBasket(id, 1);
+            return false;
+        }
 
         if (this.dataset.function != undefined) {
 

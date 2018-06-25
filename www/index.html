@@ -17,18 +17,18 @@
             var map;
             function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), {
-                    center: { lat: -34.397, lng: 150.644 },
+                    center: { lat: 54.500010, lng: 18.536883 },
                     zoom: 10,
                     disableDefaultUI: true,
                     styles: [{ "featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{ "color": "#6195a0" }] }, { "featureType": "administrative.country", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "administrative.province", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "administrative.province", "elementType": "geometry.stroke", "stylers": [{ "visibility": "off" }] }, { "featureType": "administrative.locality", "elementType": "all", "stylers": [{ "visibility": "on" }] }, { "featureType": "administrative.locality", "elementType": "labels", "stylers": [{ "visibility": "on" }] }, { "featureType": "administrative.neighborhood", "elementType": "all", "stylers": [{ "visibility": "on" }] }, { "featureType": "administrative.land_parcel", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "lightness": "0" }, { "saturation": "0" }, { "color": "#f5f5f2" }, { "gamma": "1" }] }, { "featureType": "landscape.man_made", "elementType": "all", "stylers": [{ "lightness": "-3" }, { "gamma": "1.00" }] }, { "featureType": "landscape.natural.terrain", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi.park", "elementType": "geometry.fill", "stylers": [{ "color": "#bae5ce" }, { "visibility": "on" }] }, { "featureType": "road", "elementType": "all", "stylers": [{ "saturation": -100 }, { "lightness": 45 }, { "visibility": "simplified" }] }, { "featureType": "road.highway", "elementType": "all", "stylers": [{ "visibility": "simplified" }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#fac9a9" }, { "visibility": "simplified" }] }, { "featureType": "road.highway", "elementType": "labels.text", "stylers": [{ "color": "#4e4e4e" }] }, { "featureType": "road.arterial", "elementType": "labels.text.fill", "stylers": [{ "color": "#787878" }] }, { "featureType": "road.arterial", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "elementType": "all", "stylers": [{ "visibility": "simplified" }] }, { "featureType": "transit.station.airport", "elementType": "labels.icon", "stylers": [{ "hue": "#0a00ff" }, { "saturation": "-77" }, { "gamma": "0.57" }, { "lightness": "0" }] }, { "featureType": "transit.station.rail", "elementType": "labels.text.fill", "stylers": [{ "color": "#43321e" }] }, { "featureType": "transit.station.rail", "elementType": "labels.icon", "stylers": [{ "hue": "#ff6c00" }, { "lightness": "4" }, { "gamma": "0.75" }, { "saturation": "-68" }] }, { "featureType": "water", "elementType": "all", "stylers": [{ "color": "#eaf6f8" }, { "visibility": "on" }] }, { "featureType": "water", "elementType": "geometry.fill", "stylers": [{ "color": "#c7eced" }] }, { "featureType": "water", "elementType": "labels.text.fill", "stylers": [{ "lightness": "-49" }, { "saturation": "-53" }, { "gamma": "0.79" }] }]
                 });
 
                 if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function(position) {
-                     var pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                     };
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        var pos = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
 
                         map.setCenter(pos);
                     });
@@ -59,6 +59,9 @@
             </a>
         </div>
 
+        <div id="mapMarker">
+            <img src="img/marker.png" alt="marker" />
+        </div>
     </div>
     <div class="app usersection">
         <a href="#" data-section="initsection" data-direction="top" class="close link">
@@ -231,7 +234,7 @@
             </div>
         </div>
 
-        <a id="goToCart" href="#" data-modal="cartModal">
+        <a id="goToCart" href="#" data-modal="cartModal" data-function="loadOrder">
             <div class="wrapper">
                 <img src="img/cart.png" alt="cart" />
                 Koszyk (<span id="cartSize">1</span>)
@@ -248,9 +251,9 @@
 
         <div class="imageWrapper">
             <img src="img/unknown.png" alt="unknown" id="productImage" />
-            <div class="addToCart">
+            <a href="#" class="addToCart">
                 <img src="img/cart.png" alt="cart" />
-            </div>
+            </a>
         </div>
 
         <h1 id="productTitle"></h1>
@@ -291,89 +294,86 @@
                     <div class="address">ul. Świętojańska 2, Gdynia</div>
                 </div>
                 <div class="amount average">
-                    3 sztuk
+                    3 sztuki
                 </div>
             </div>
         </div>
 
-        <a id="goToCart" href="#" data-modal="cartModal">
+        <a id="goToCart" href="#" data-modal="cartModal" data-function="loadOrder">
             <div class="wrapper">
                 <img src="img/cart.png" alt="cart" />
                 Koszyk (<span id="cartSize">1</span>)
             </div>
         </a>
     </div>
-    <!-- TODO: loadOrder(); -->
-    <div class="modal" style="display: none;">
+    <div class="modal cartModal" style="display: none">
+        <a href="#" data-section="initsection" data-direction="top" class="modalClose link">
+            <img src="img/close.png" alt="close" />
+        </a>
         <div class="modalBlur">
-        <div class="modal cartModal" style="display: none">
-            <a href="#" data-section="initsection" data-direction="top" class="modalClose link">
-                <img src="img/close.png" alt="close" />
-            </a>
-            <div class="modalBlur">
-
-            </div>
-            <div class="receipt">
-                <div class="receiptHeader">
-                    <div class="brand">
-                        <img src="img/logo.png" alt="Logo" />
-                        <div class="brandText">PharmaGO</div>
-                    </div>
-                    <div class="timestamp">
-                        <div class="date">26.06.2018</div>
-                        <div class="time">12:21</div>
-                    </div>
-                </div>
-
-                <div class="orderName">
-                    Zamówienie #16235
-                </div>
-
-                <div class="products">
-                    <div id="productsOrder"></div>
-
-                    <div class="separator">
-
-                    </div>
-
-                    <div class="summary">
-                        <div class="total">Łącznie</div>
-                        <div class="price">
-                            <span id="priceValue">0.00</span>zł
-                            <span class="additionalInfo">+2 punkty</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="paymentCards">
-
-                <div class="card mastercard">
-                    <img src="img/mastercardicon.png" alt="Mastercard" />
-
-                    <div class="cardData">
-
-                        <div class="cardNumber creditFont">
-                            &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; 6870
-                        </div>
-
-                        <div class="cardHolder">
-                            <div class="title">Card holder</div>
-                            <div class="value creditFont">Anna Jurkiewicz</div>
-                        </div>
-
-                        <div class="cardExpiry">
-                            <div class="title">Expiry</div>
-                            <div class="value creditFont">09/2020</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/navigation.js"></script>
+        <div class="receipt">
+            <div class="receiptHeader">
+                <div class="brand">
+                    <img src="img/logo.png" alt="Logo" />
+                    <div class="brandText">PharmaGO</div>
+                </div>
+                <div class="timestamp">
+                    <div class="date">26.06.2018</div>
+                    <div class="time">12:21</div>
+                </div>
+            </div>
+
+            <div class="orderName">
+                Zamówienie #16235
+            </div>
+
+            <div class="products">
+                <div id="productsOrder"></div>
+
+                <div class="separator">
+
+                </div>
+
+                <div class="summary">
+                    <div class="total">Łącznie</div>
+                    <div class="price">
+                        <span id="priceValue">0.00</span>zł
+                        <span class="additionalInfo">+2 punkty</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="paymentCards">
+
+            <a class="card mastercard" href="#" data-section="realization">
+                <img src="img/mastercardicon.png" alt="Mastercard" />
+
+                <div class="cardData">
+
+                    <div class="cardNumber creditFont">
+                        &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; 6870
+                    </div>
+
+                    <div class="cardHolder">
+                        <div class="title">Card holder</div>
+                        <div class="value creditFont">Anna Jurkiewicz</div>
+                    </div>
+
+                    <div class="cardExpiry">
+                        <div class="title">Expiry</div>
+                        <div class="value creditFont">09/2020</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/navigation.js"></script>
 </body>
 </html>

@@ -305,6 +305,18 @@ body {
     }
 }
 
+#mapMarker {
+    $size: 36px;
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: $size;
+        height: $size;
+        transform: translateX(-$size/2) translateY(-$size);
+    }
+}
+
 .mapLinks {
     position: absolute;
     bottom: 20px;
@@ -397,7 +409,7 @@ body {
         font-weight: 500;
         font-size: 0.8rem;
         text-align: right;
-        margin: 14px 6px 0 0;
+        margin: 14px 10px 0 0;
 
         .time {
             margin-top: 4px;
@@ -478,6 +490,8 @@ body {
         font-size: 0.8rem;
         color: white;
         box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.3);
+        display: block;
+        text-decoration: none;
 
         img {
             height: 30px;
@@ -670,6 +684,7 @@ body {
                 float: left;
                 width: 28%;
                 font-size: 1rem;
+                padding: 11px 0;
 
                 &.bad {
                     color: red;
