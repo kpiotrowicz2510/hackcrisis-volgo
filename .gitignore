@@ -3,3 +3,4 @@ www/css/style.css.map
 platforms/
 .sass-cache
 node_modules/
+.vs
