@@ -53,7 +53,7 @@ function getProduct(id){
 function loadOneProduct(data) {
     $('#productImage').attr("src", data.image);
     $("#productTitle").text(data.name);
-    $("#productPrice").text(data.price);
+    $("#productPrice").text(parseFloat(Math.round(data.price * 100) / 100).toFixed(2) + " zł");
     $("#productDescription").text(data.description);
     $("#productAvailability").text("Dostępność: "+data.availableAmount + " szt.");
 }
