@@ -230,6 +230,13 @@
                 </div>
             </div>
         </div>
+
+        <a id="goToCart" href="#" data-modal="cartModal">
+            <div class="wrapper">
+                <img src="img/cart.png" alt="cart" />
+                Koszyk (<span id="cartSize">1</span>)
+            </div>
+        </a>
     </div>
     <div class="app productsection">
         <a href="#" data-section="initsection" data-direction="right" class="close link">
@@ -288,77 +295,82 @@
                 </div>
             </div>
         </div>
+
+        <a id="goToCart" href="#" data-modal="cartModal">
+            <div class="wrapper">
+                <img src="img/cart.png" alt="cart" />
+                Koszyk (<span id="cartSize">1</span>)
+            </div>
+        </a>
     </div>
-    <!-- TODO: loadOrder(); -->
-<<<<<<< HEAD
-    <div class="modal" style="display: none">
-=======
-    <div class="modal" style="display: none;">
->>>>>>> cc9f7b19b0e8ae25b52e438f8b9257ac861997b5
-        <div class="modalBlur">
+        <div class="modal cartModal" style="display: none">
+            <a href="#" data-section="initsection" data-direction="top" class="modalClose link">
+                <img src="img/close.png" alt="close" />
+            </a>
+            <div class="modalBlur">
+
+            </div>
+            <div class="receipt">
+                <div class="receiptHeader">
+                    <div class="brand">
+                        <img src="img/logo.png" alt="Logo" />
+                        <div class="brandText">PharmaGO</div>
+                    </div>
+                    <div class="timestamp">
+                        <div class="date">26.06.2018</div>
+                        <div class="time">12:21</div>
+                    </div>
+                </div>
+
+                <div class="orderName">
+                    Zamówienie #16235
+                </div>
+
+                <div class="products">
+                    <div id="productsOrder"></div>
+
+                    <div class="separator">
+
+                    </div>
+
+                    <div class="summary">
+                        <div class="total">Łącznie</div>
+                        <div class="price">
+                            <span id="priceValue">0.00</span>zł
+                            <span class="additionalInfo">+2 punkty</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="paymentCards">
+
+                <div class="card mastercard">
+                    <img src="img/mastercardicon.png" alt="Mastercard" />
+
+                    <div class="cardData">
+
+                        <div class="cardNumber creditFont">
+                            &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; 6870
+                        </div>
+
+                        <div class="cardHolder">
+                            <div class="title">Card holder</div>
+                            <div class="value creditFont">Anna Jurkiewicz</div>
+                        </div>
+
+                        <div class="cardExpiry">
+                            <div class="title">Expiry</div>
+                            <div class="value creditFont">09/2020</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
-        <div class="receipt">
-            <div class="receiptHeader">
-                <div class="brand">
-                    <img src="img/logo.png" alt="Logo" />
-                    <div class="brandText">PharmaGO</div>
-                </div>
-                <div class="timestamp">
-                    <div class="date">26.06.2018</div>
-                    <div class="time">12:21</div>
-                </div>
-            </div>
-
-            <div class="orderName">
-                Zamówienie #16235
-            </div>
-
-            <div class="products">
-                <div id="productsOrder"></div>
-
-                <div class="separator">
-
-                </div>
-
-                <div class="summary">
-                    <div class="total">Łącznie</div>
-                    <div class="price">
-                        <span id="priceValue">0.00</span>zł
-                        <span class="additionalInfo">+2 punkty</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="paymentCards">
-
-            <div class="card mastercard">
-                <img src="img/mastercardicon.png" alt="Mastercard" />
-
-                <div class="cardData">
-
-                    <div class="cardNumber creditFont">
-                        &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; 6870
-                    </div>
-
-                    <div class="cardHolder">
-                        <div class="title">Card holder</div>
-                        <div class="value creditFont">Anna Jurkiewicz</div>
-                    </div>
-
-                    <div class="cardExpiry">
-                        <div class="title">Expiry</div>
-                        <div class="value creditFont">09/2020</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/navigation.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/navigation.js"></script>
 </body>
 </html>
