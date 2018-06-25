@@ -4,12 +4,21 @@ let currentIndex = 1;
 
     $(document).on("click", "a", function () {
 
+        if ($(this).hasClass('modalClose')) {
+            $('.modal').fadeOut();
+            return false;
+        }
+
         if (this.dataset.function != undefined) {
 
             if(this.dataset.data != undefined)
                 window[this.dataset.function](this.dataset.data);
             else
                 window[this.dataset.function]();
+        }
+        if (this.dataset.modal != undefined) {
+
+            $('.' + this.dataset.modal).fadeIn();
         }
 
         if (reloading || this.dataset.section == undefined)
