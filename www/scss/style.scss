@@ -485,3 +485,90 @@ body {
         font-family: Inconsolata;
     }
 }
+
+.hello {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 14px 6px 4px 6px;
+}
+
+.search {
+    border-bottom: 1px solid black;
+    margin: 20px 14px 30px;
+    overflow: auto;
+
+    img {
+        height: 1rem;
+        float: left;
+        width: 16px;
+        margin: 1px;
+    }
+
+    input {
+        float: left;
+        width: calc(100% - 20px);
+        border: 0;
+        font-size: 0.78rem;
+        line-height:18px;
+        padding-left: 8px;
+        outline: none;
+    }
+}
+.scrollwrapper {
+    height: 100vh;
+    overflow-y: scroll;
+}
+.productsContainer {
+    margin: 40px 6px 10px 6px;
+    overflow: auto;
+
+    .header {
+        font-size: 1.1rem;
+        font-weight: 700;
+        float: left;
+        width: 80%;
+        margin-bottom: 8px;
+    }
+
+    .more {
+        float: left;
+        width: 20%;
+        text-align: right;
+        font-weight: 600;
+        font-size: 0.8rem;
+        line-height: 1.1rem;
+        color: $belizeHole;
+        padding-right: 5px;
+    }
+
+    .productsList {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        clear: left;
+
+        .productsItem {
+            float: left;
+            width: 140px;
+            text-decoration: none;
+            color: black;
+
+            img {
+                width: 140px;
+                height: 140px;
+            }
+
+            h2 {
+                font-weight: 400;
+                font-size: 0.8rem;
+                margin: 2px 0;
+            }
+
+            span {
+                display: block;
+                font-weight: 600;
+                font-size: 0.8rem;
+            }
+        }
+    }
+}

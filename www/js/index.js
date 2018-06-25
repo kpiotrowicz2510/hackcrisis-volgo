@@ -46,39 +46,58 @@ function loadOneProduct(data){
 
 function loadProducts(data){
     for(var i = 0; i<2; i++){
-        var div = document.createElement("div");
-        div.className = "productsItem";
+        var a = document.createElement("a");
+        a.href = '#';
+        a.dataset.section = 'productsection';
+        a.dataset.function = 'loadOneProduct';
+        a.className = "productsItem";
         var img = document.createElement("img");
         img.src = data[i].image;
-        div.appendChild(img);
+        a.appendChild(img);
         var name = document.createElement("h2");
-        name.innerHTML = data[i].name + " Cena:"+data[i].price+" zł";
-        div.appendChild(name);
-        document.getElementById("products1").appendChild(div);
+        name.innerHTML = data[i].name;
+        a.appendChild(name);
+        var span = document.createElement("span");
+        span.innerHTML = data[i].price + " zł";
+        a.appendChild(span);
+        document.getElementById("products1").appendChild(a);
     }
 
     for(var i = 3; i<6; i++){
-        var div = document.createElement("div");
-        div.className = "productsItem";
+        var a = document.createElement("a");
+        a.href = '#';
+        a.dataset.section = 'productsection';
+        a.dataset.function = 'loadOneProduct';
+
+        a.className = "productsItem";
         var img = document.createElement("img");
         img.src = data[i].image;
-        div.appendChild(img);
+        a.appendChild(img);
         var name = document.createElement("h2");
-        name.innerHTML = data[i].name + " Cena:"+data[i].price+" zł";
-        div.appendChild(name);
-        document.getElementById("products2").appendChild(div);
+        name.innerHTML = data[i].name;
+        a.appendChild(name);
+        var span = document.createElement("span");
+        span.innerHTML = data[i].price + " zł";
+        a.appendChild(span);
+        document.getElementById("products2").appendChild(a);
     }
 
     for(var i = 6; i<8; i++){
-        var div = document.createElement("div");
-        div.className = "productsItem";
+        var a = document.createElement("a");
+        a.href = '#';
+        a.dataset.section = 'productsection';
+        a.dataset.function = 'loadOneProduct';
+        a.className = "productsItem";
         var img = document.createElement("img");
         img.src = data[i].image;
-        div.appendChild(img);
+        a.appendChild(img);
         var name = document.createElement("h2");
-        name.innerHTML = data[i].name + " Cena:"+data[i].price+" zł";
-        div.appendChild(name);
-        document.getElementById("products3").appendChild(div);
+        name.innerHTML = data[i].name;
+        a.appendChild(name);
+        var span = document.createElement("span");
+        span.innerHTML = data[i].price + " zł";
+        a.appendChild(span);
+        document.getElementById("products3").appendChild(a);
     }
 }
 
