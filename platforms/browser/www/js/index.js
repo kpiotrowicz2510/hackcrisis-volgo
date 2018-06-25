@@ -18,7 +18,7 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
-var GLOBALS_siteUrl = "http://145.239.86.84:9069/api/";
+var GLOBALS_siteUrl = "http://localhost:9069/api/";
 function getProducts(){
     $.ajax({
         method: "GET",
@@ -77,6 +77,44 @@ function loadProducts(data){
         div.appendChild(name);
         document.getElementById("products3").appendChild(div);
     }
+}
+
+function loadOrder(){
+    $.ajax({
+        method: "GET",
+        url: GLOBALS_siteUrl+"basket",
+    }).done(function(response) {
+        loadOrderData(response.items);
+    });
+}
+
+function loadOrderData(data){
+    for(var i = 0; i<data.length; i++){
+        var amount = data[i].amount;
+        var total = 0.00;
+        $.ajax({
+            method: "GET",
+            url: GLOBALS_siteUrl+"products/"+data[i].idProduct,
+        }).done(function(response) {
+            total = parseFloat(total) + parseFloat(response.price)*amount;
+            $("#priceValue").html(total);
+            loadOrderProduct(response, amount);
+        });
+    }
+}
+
+function loadOrderProduct(data,amount){
+        var div = document.createElement("div");
+        div.className = "product";
+        var name = document.createElement("div");
+        name.className = "name";
+        name.innerHTML = data.name + " <span class='info'>"+amount+" szt.</span>";
+        div.appendChild(name);
+        var price = document.createElement("div");
+        price.className="price";
+        price.innerHTML = (data.price*amount)+"zł";
+        div.appendChild(price);
+        document.getElementById("productsOrder").appendChild(div);
 }
 
 app.initialize();

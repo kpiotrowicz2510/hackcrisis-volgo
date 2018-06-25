@@ -207,6 +207,7 @@
             </div>
         </div>
     </div>
+    <!-- TODO: loadOrder(); -->
     <div class="modal">
         <div class="modalBlur">
 
@@ -228,22 +229,7 @@
             </div>
 
             <div class="products">
-                <div class="product">
-                    <div class="name">Paracetamol <span class="info">200ml</span></div>
-                    <div class="price">12.25zł</div>
-                </div>
-                <div class="product">
-                    <div class="name">Fiklyś <span class="info">2szt</span></div>
-                    <div class="price">22.42zł</div>
-                </div>
-                <div class="product">
-                    <div class="name">Pawulonik <span class="info">piąteczka</span></div>
-                    <div class="price">100.01zł</div>
-                </div>
-                <div class="product">
-                    <div class="name">Dostawa</div>
-                    <div class="price">gratis</div>
-                </div>
+                <div id="productsOrder"></div>
 
                 <div class="separator">
 
@@ -252,7 +238,7 @@
                 <div class="summary">
                     <div class="total">Łącznie</div>
                     <div class="price">
-                        134.66zł
+                        <span id="priceValue">0.00</span>zł
                         <span class="additionalInfo">+2 punkty</span>
                     </div>
                 </div>
