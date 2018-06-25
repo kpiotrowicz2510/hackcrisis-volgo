@@ -3,6 +3,7 @@ $asbestos: #7f8c8d;
 $peterRiver: #3498db;
 $belizeHole: #2980b9;
 $silver: #bdc3c7;
+$bgColor: white;
 
 * {
     box-sizing: border-box;
@@ -94,53 +95,118 @@ body {
     }
 }
 
-.links {
+.bottomContainer {
     margin: 20px 0 0 0;
     position: absolute;
     bottom: 0;
     width: 100%;
 
+    .siusiu {
+        position: relative;
+        width: 100%;
+        height: 100px;
 
-    .linkSpacer {
-        background: $silver;
-        height: 1px;
-        width: calc(100% - 20px);
-        margin: 0 auto;
+        .down {
+            border-color: #34495e;
+        }
+
+        .left {
+            left: -10vw;
+        }
+
+        .right {
+            right: -10vw;
+        }
+
+        * {
+            position: absolute;
+            width: 50%;
+        }
+
+        .left.bg {
+            border-top: 20px solid $bgColor;
+            border-left: 60vw solid transparent;
+            z-index: 2;
+        }
+
+        .right.bg {
+            border-top: 20px solid $bgColor;
+            border-right: 60vw solid transparent;
+            z-index: 2;
+        }
+
+        .left.up {
+            top: 10px;
+            border-top: 20px solid aquamarine;
+            border-left: 60vw solid transparent;
+            z-index: 1;
+        }
+
+        .left.up {
+            top: 10px;
+            border-top: 20px solid aquamarine;
+            border-right: 60vw solid transparent;
+            z-index: 1;
+        }
+
+        .left.down {
+            top: 20px;
+            border-top: 20px solid $asbestos;
+            border-left: 60vw solid transparent;
+            z-index: 0;
+        }
+
+        .left.down {
+            top: 20px;
+            border-top: 20px solid $asbestos;
+            border-right: 60vw solid transparent;
+            z-index: 0;
+        }
     }
 
-    .link {
-        text-decoration: none;
-        padding: 8px 10px;
-        display: block;
-        overflow: auto;
 
-        .linkName {
-            color: $peterRiver;
-            font-size: 0.9rem;
-            float: left;
-            line-height: 22px;
+    .links {
+
+        .linkSpacer {
+            background: $silver;
+            height: 1px;
+            width: calc(100% - 20px);
+            margin: 0 auto;
         }
 
-        .linkValue {
-            color: $asbestos;
-            float: right;
-            font-size: 0.9rem;
-            line-height: 22px;
-            padding: 0 10px 0 0;
+        .link {
+            text-decoration: none;
+            padding: 8px 10px;
+            display: block;
+            overflow: auto;
 
-            img {
-                height: 20px;
+            .linkName {
+                color: $peterRiver;
+                font-size: 0.9rem;
+                float: left;
                 line-height: 22px;
-
             }
-        }
 
-        .linkArrow {
-            float: right;
+            .linkValue {
+                color: $asbestos;
+                float: right;
+                font-size: 0.9rem;
+                line-height: 22px;
+                padding: 0 10px 0 0;
 
-            img {
-                width: 20px;
-                height: 20px;
+                img {
+                    height: 20px;
+                    line-height: 22px;
+                }
+            }
+
+            .linkArrow {
+                float: right;
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
             }
         }
     }
