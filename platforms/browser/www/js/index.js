@@ -30,7 +30,7 @@ function getProducts(){
 }
 
 function loadProducts(data){
-    for(var i = 0; i<data.length; i++){
+    for(var i = 0; i<2; i++){
         var div = document.createElement("div");
         div.className = "productsItem";
         var img = document.createElement("img");
@@ -39,6 +39,28 @@ function loadProducts(data){
         name.innerHTML = data[i].name + " Cena:"+data[i].price+" zł";
         div.appendChild(name);
         document.getElementById("products1").appendChild(div);
+    }
+
+    for(var i = 3; i<6; i++){
+        var div = document.createElement("div");
+        div.className = "productsItem";
+        var img = document.createElement("img");
+        div.appendChild(img);
+        var name = document.createElement("h2");
+        name.innerHTML = data[i].name + " Cena:"+data[i].price+" zł";
+        div.appendChild(name);
+        document.getElementById("products2").appendChild(div);
+    }
+
+    for(var i = 6; i<8; i++){
+        var div = document.createElement("div");
+        div.className = "productsItem";
+        var img = document.createElement("img");
+        div.appendChild(img);
+        var name = document.createElement("h2");
+        name.innerHTML = data[i].name + " Cena:"+data[i].price+" zł";
+        div.appendChild(name);
+        document.getElementById("products3").appendChild(div);
     }
 }
 
