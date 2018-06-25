@@ -155,4 +155,14 @@ function loadOrderProduct(data,amount){
         document.getElementById("productsOrder").appendChild(div);
 }
 
+function addNewOrderToBasket(id,amount){
+    $.ajax({
+        method: "POST",
+        url: GLOBALS_siteUrl+"basket/products",
+        data:{IdProduct:id, Amount:amount}
+    }).done(function(response) {
+        
+    });
+}
+
 app.initialize();
