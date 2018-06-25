@@ -15,11 +15,10 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         
-
         console.log('Received Event: ' + id);
     }
 };
-var GLOBALS_siteUrl = "http://localhost:9069/api/"
+var GLOBALS_siteUrl = "http://145.239.86.84:9069/api/"
 function getProducts(){
     $.ajax({
         method: "GET",

@@ -24,7 +24,7 @@
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhyXfKuDiBfle8lVDqTCPjzO8S8h3In3A&callback=initMap" async defer></script>
 
-        <div id="createOrder">
+        <a id="createOrder" href="#" data-section="productssection" data-function="getProducts">
             <span class="content">
                 Stwórz zamównienie
             </span>
@@ -34,10 +34,10 @@
             <div class="separator">
 
             </div>
-        </div>
+        </a>
 
         <div class="mapLinks">
-            <a class="link" href="#" data-section="usersection">
+            <a class="link" href="#" data-section="usersection" data-direction="bottom">
                 <img src="img/cogs.png" alt="cogs" />
             </a>
 
@@ -48,7 +48,7 @@
 
     </div>
     <div class="app usersection">
-        <a href="#" data-section="initsection" data-direction="right" class="close link">
+        <a href="#" data-section="initsection" data-direction="top" class="close link">
             <img src="img/close.png" alt="close" />
         </a>
         <div class="user">
@@ -181,7 +181,34 @@
             </div>
         </div>
     </div>
+    <div class="app productssection">
+        <a href="#" data-section="initsection" data-direction="right" class="close link">
+            <img src="img/close.png" alt="close" />
+        </a>
+        <div class="search">
+            <input type="search" placeholder="Szukaj produktu...">
+        </div>
+        <div class="productsContainer">
+            <h1>Ostatnio przeglądane</h1>
+            <div id="products1" class="productsList">
+
+            </div>
+        </div>
+        <div class="productsContainer">
+            <h1>Nowości</h1>
+            <div id="products2" class="productsList">
+
+            </div>
+        </div>
+        <div class="productsContainer">
+            <h1>Polecane dla Ciebie</h1>
+            <div id="products3" class="productsList">
+
+            </div>
+        </div>
+    </div>
     <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/navigation.js"></script>
 </body>
