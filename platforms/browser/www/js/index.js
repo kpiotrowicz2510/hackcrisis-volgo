@@ -19,7 +19,7 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
-var GLOBALS_siteUrl = "http://localhost:9069/api/"
+var GLOBALS_siteUrl = "http://145.239.86.84:9069/api/"
 function getProducts(){
     $.ajax({
         method: "GET",
@@ -27,6 +27,22 @@ function getProducts(){
     }).done(function(response) {
         loadProducts(response);
     });
+}
+
+function getProduct(id){
+    $.ajax({
+        method: "GET",
+        url: GLOBALS_siteUrl+"products/"+id,
+    }).done(function(response) {
+        loadOneProduct(response);
+    });
+}
+
+function loadOneProduct(data){
+    $("#productTitle").text(data.name);
+    $("#productPrice").text(data.price);
+    $("#productDescription").text(data.description);
+    $("#productAvailability").text("Dostępność: "+data.availableAmount + " szt.");
 }
 
 function loadProducts(data){
