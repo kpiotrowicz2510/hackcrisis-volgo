@@ -24,7 +24,7 @@
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhyXfKuDiBfle8lVDqTCPjzO8S8h3In3A&callback=initMap" async defer></script>
 
-        <div id="createOrder">
+        <a id="createOrder" href="#" data-section="productssection" data-function="getProducts">
             <span class="content">
                 Stwórz zamównienie
             </span>
@@ -34,10 +34,10 @@
             <div class="separator">
 
             </div>
-        </div>
+        </a>
 
         <div class="mapLinks">
-            <a class="link" href="#" data-section="usersection">
+            <a class="link" href="#" data-section="usersection" data-direction="bottom">
                 <img src="img/cogs.png" alt="cogs" />
             </a>
 
@@ -48,7 +48,7 @@
 
     </div>
     <div class="app usersection">
-        <a href="#" data-section="initsection" data-direction="right" class="close link">
+        <a href="#" data-section="initsection" data-direction="top" class="close link">
             <img src="img/close.png" alt="close" />
         </a>
         <div class="user">
@@ -181,7 +181,90 @@
             </div>
         </div>
     </div>
+    <div class="app productssection">
+        <a href="#" data-section="initsection" data-direction="right" class="close link">
+            <img src="img/close.png" alt="close" />
+        </a>
+        <div class="search">
+            <input type="search" placeholder="Szukaj produktu...">
+        </div>
+        <div class="productsContainer">
+            <h1>Ostatnio przeglądane</h1>
+            <div id="products1" class="productsList">
+
+            </div>
+        </div>
+        <div class="productsContainer">
+            <h1>Nowości</h1>
+            <div id="products2" class="productsList">
+
+            </div>
+        </div>
+        <div class="productsContainer">
+            <h1>Polecane dla Ciebie</h1>
+            <div id="products3" class="productsList">
+
+            </div>
+        </div>
+    </div>
+    <div class="modal">
+        <div class="modalBlur">
+
+        </div>
+        <div class="receipt">
+            <div class="receiptHeader">
+                <div class="brand">
+                    <img src="img/logo.png" alt="Logo" />
+                    <div class="brandText">PharmaGO</div>
+                </div>
+                <div class="timestamp">
+                    <div class="date">26.06.2018</div>
+                    <div class="time">12:21</div>
+                </div>
+            </div>
+
+            <div class="orderName">
+                Zamówienie #16235
+            </div>
+
+            <div class="products">
+                <div class="product">
+                    <div class="name">Paracetamol <span class="info">200ml</span></div>
+                    <div class="price">12.25zł</div>
+                </div>
+                <div class="product">
+                    <div class="name">Fiklyś <span class="info">2szt</span></div>
+                    <div class="price">22.42zł</div>
+                </div>
+                <div class="product">
+                    <div class="name">Pawulonik <span class="info">piąteczka</span></div>
+                    <div class="price">100.01zł</div>
+                </div>
+                <div class="product">
+                    <div class="name">Dostawa</div>
+                    <div class="price">gratis</div>
+                </div>
+
+                <div class="separator">
+
+                </div>
+
+                <div class="summary">
+                    <div class="total">Łącznie</div>
+                    <div class="price">
+                        134.66zł
+                        <span class="additionalInfo">+2 punkty</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="button success">
+            Potwierdź płatnosć
+        </a>
+
+    </div>
     <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/navigation.js"></script>
 </body>

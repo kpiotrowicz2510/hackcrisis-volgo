@@ -8,11 +8,10 @@ let reloading = false;
 
             if (this.dataset.function != undefined) {
 
-                this.dataset.function();
-                return false;
+                window[this.dataset.function]();
             }
 
-            if (reloading)
+            if (reloading || this.dataset.section == undefined)
                 return false;
 
             reloading = true;
@@ -28,6 +27,10 @@ let reloading = false;
 
             if (direction != undefined && direction == 'right')
                 element.style.left = '-100vw';
+            else if (direction != undefined && direction == 'top')
+                element.style.top = '-100vh';
+            else if (direction != undefined && direction == 'bottom')
+                element.style.top = '100vh';
             else
                 element.style.left = '100vw';
 
@@ -48,6 +51,10 @@ let reloading = false;
 
                     if (direction != undefined && direction == 'right')
                         element.style.left = '-' + pos + 'vw';
+                    else if (direction != undefined && direction == 'top')
+                        element.style.top = '-' + pos + 'vh';
+                    else if (direction != undefined && direction == 'bottom')
+                        element.style.top = pos + 'vh';
                     else
                         element.style.left = pos + 'vw';
                  }

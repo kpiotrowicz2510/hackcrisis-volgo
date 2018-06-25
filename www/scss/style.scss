@@ -28,20 +28,22 @@ body {
     overflow: hidden;
     display: none;
 }
+
 .close {
     position: absolute;
     top: 16px;
     right: 16px;
-    
+
     img {
         width: 24px;
         height: 24px;
     }
 }
 
-.usersection {
+.usersection, .productssection {
     background: $bgColor;
 }
+
 .user {
     margin: 30px 0 0 0;
     overflow: auto;
@@ -296,6 +298,137 @@ body {
             width: 24px;
             height: 24px;
             margin: 8px;
+        }
+    }
+}
+
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.receipt {
+    position: relative;
+    width: 80vw;
+    min-height: 30vh;
+    margin: 20px auto 0;
+    background: $bgColor;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px 5px 0 0;
+
+    &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 10px;
+        bottom: -10px;
+        left: 0;
+        background-image: linear-gradient(45deg, rgba(0, 0, 0, 0) 33.333%, $bgColor 33.333%, $bgColor 66.667%, rgba(0, 0, 0, 0) 66.667%), linear-gradient(-45deg, rgba(0, 0, 0, 0) 33.333%, $bgColor 33.333%, $bgColor 66.667%, rgba(0, 0, 0, 0) 66.667%);
+        background-size: 20px 40px;
+        background-position: 50% -30px;
+        background-repeat: repeat-x;
+        z-index: 1;
+    }
+
+    .receiptHeader {
+        overflow: auto;
+    }
+
+    .brand {
+        margin: 6px 0 0 6px;
+        float: left;
+        overflow: auto;
+
+        img {
+            float: left;
+            width: 40px;
+            height: 40px;
+        }
+
+        .brandText {
+            float: left;
+            line-height: 40px;
+            font-size: 1.4rem;
+            margin-left: 12px;
+        }
+    }
+
+    .timestamp {
+        float: right;
+        color: $silver;
+        font-weight: 500;
+        font-size: 0.8rem;
+        text-align: right;
+        margin: 14px 6px 0 0;
+
+        .time {
+            margin-top: 4px;
+        }
+    }
+
+    .orderName {
+        clear: both;
+        margin: 20px 10px;
+        font-weight: 500;
+        font-size: 1.1rem;
+    }
+
+    .products {
+        margin: 12px 12px;
+
+        .product {
+            font-size: 0.9rem;
+            overflow: auto;
+            padding: 2px 0;
+
+            .name {
+                float: left;
+                width: 76%;
+
+                .info {
+                    color: $silver;
+                }
+            }
+
+            .price {
+                float: left;
+                width: 24%;
+            }
+        }
+
+        .separator {
+            width: 100%;
+            border-bottom: 1px dashed $silver;
+            margin: 10px 0;
+        }
+
+        .summary {
+            font-weight: 600;
+            font-size: 0.9rem;
+            overflow: auto;
+            padding-bottom: 20px;
+
+            .total {
+                float: left;
+                width: 70%;
+                line-height: 1.8rem;
+            }
+
+            .price {
+                float: left;
+                width: 30%;
+                text-align: center;
+
+                .additionalInfo {
+                    display: block;
+                    color: $peterRiver;
+                }
+            }
         }
     }
 }
