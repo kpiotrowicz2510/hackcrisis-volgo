@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pl-PL">
 <head>
     <meta charset="utf-8">
@@ -7,10 +7,50 @@
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Hello World</title>
+    <title>PharmaGO</title>
 </head>
 <body>
-    <div class="app">
+    <div class="app initsection" style="display: block;">
+        <div id="map"></div>
+        <script>
+            var map;
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: { lat: -34.397, lng: 150.644 },
+                    zoom: 8,
+                    disableDefaultUI: true
+                });
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhyXfKuDiBfle8lVDqTCPjzO8S8h3In3A&callback=initMap" async defer></script>
+
+        <div id="createOrder">
+            <span class="content">
+                Stwórz zamównienie
+            </span>
+            <div class="icon">
+                <img src="img/order.png" alt="order">
+            </div>
+            <div class="separator">
+
+            </div>
+        </div>
+
+        <div class="mapLinks">
+            <a class="link" href="#" data-section="usersection">
+                <img src="img/cogs.png" alt="cogs">
+            </a>
+
+            <a class="link" href="#" data-function="findMe">
+                <img src="img/finder.png" alt="finder">
+            </a>
+        </div>
+
+    </div>
+    <div class="app usersection">
+        <a href="#" data-section="initsection" data-direction="right" class="close link">
+            <img src="img/close.png" alt="close">
+        </a>
         <div class="user">
             <div class="name">Anna Jurkiewicz</div>
             <div class="location">Gdynia, Polska</div>
@@ -24,7 +64,7 @@
 
             <div class="stats">
                 <div class="stat">
-                    <div class="desc">Zam�wienia</div>
+                    <div class="desc">Zamówienia</div>
                     <div class="amount">42</div>
                 </div>
 
@@ -54,7 +94,7 @@
 
                     </div>
                     <div class="linkName">
-                        Metoda p�atno�ci
+                        Metoda płatności
                     </div>
                     <div class="linkArrow">
                         <img src="img/forward.png" alt="forward">
@@ -112,7 +152,7 @@
 
                     </div>
                     <div class="linkName">
-                        Moje zam�wnienia
+                        Moje zamównienia
                     </div>
                     <div class="linkArrow">
                         <img src="img/forward.png" alt="forward">
@@ -143,5 +183,6 @@
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/navigation.js"></script>
 </body>
 </html>
