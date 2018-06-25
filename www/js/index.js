@@ -18,7 +18,7 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
-var GLOBALS_siteUrl = "http://localhost:9069/api/";
+var GLOBALS_siteUrl = "http://145.239.86.84:9069/api/";
 function getProducts(){
     $.ajax({
         method: "GET",
@@ -26,6 +26,19 @@ function getProducts(){
     }).done(function(response) {
         loadProducts(response);
     });
+}
+
+function findMe(){
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+         var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+         };
+
+        map.setCenter(pos);
+        });
+    } 
 }
 
 function getProduct(id){
@@ -37,7 +50,8 @@ function getProduct(id){
     });
 }
 
-function loadOneProduct(data){
+function loadOneProduct(data) {
+    $('#productImage').attr("src", data.image);
     $("#productTitle").text(data.name);
     $("#productPrice").text(data.price);
     $("#productDescription").text(data.description);
@@ -46,39 +60,60 @@ function loadOneProduct(data){
 
 function loadProducts(data){
     for(var i = 0; i<2; i++){
-        var div = document.createElement("div");
-        div.className = "productsItem";
+        var a = document.createElement("a");
+        a.href = '#';
+        a.dataset.section = 'productsection';
+        a.dataset.function = 'getProduct';
+        a.dataset.data = data[i].id;
+        a.className = "productsItem";
         var img = document.createElement("img");
         img.src = data[i].image;
-        div.appendChild(img);
+        a.appendChild(img);
         var name = document.createElement("h2");
-        name.innerHTML = data[i].name + " Cena:"+data[i].price+" zł";
-        div.appendChild(name);
-        document.getElementById("products1").appendChild(div);
+        name.innerHTML = data[i].name;
+        a.appendChild(name);
+        var span = document.createElement("span");
+        span.innerHTML = parseFloat(Math.round(data[i].price * 100) / 100).toFixed(2) + " zł";
+        a.appendChild(span);
+        document.getElementById("products1").appendChild(a);
     }
 
     for(var i = 3; i<6; i++){
-        var div = document.createElement("div");
-        div.className = "productsItem";
+        var a = document.createElement("a");
+        a.href = '#';
+        a.dataset.section = 'productsection';
+        a.dataset.function = 'getProduct';
+        a.dataset.data = data[i].id;
+        a.className = "productsItem";
         var img = document.createElement("img");
         img.src = data[i].image;
-        div.appendChild(img);
+        a.appendChild(img);
         var name = document.createElement("h2");
-        name.innerHTML = data[i].name + " Cena:"+data[i].price+" zł";
-        div.appendChild(name);
-        document.getElementById("products2").appendChild(div);
+        name.innerHTML = data[i].name;
+        a.appendChild(name);
+        var span = document.createElement("span");
+        span.innerHTML = parseFloat(Math.round(data[i].price * 100) / 100).toFixed(2) + " zł";
+        a.appendChild(span);
+        document.getElementById("products2").appendChild(a);
     }
 
     for(var i = 6; i<8; i++){
-        var div = document.createElement("div");
-        div.className = "productsItem";
+        var a = document.createElement("a");
+        a.href = '#';
+        a.dataset.section = 'productsection';
+        a.dataset.function = 'getProduct';
+        a.dataset.data = data[i].id;
+        a.className = "productsItem";
         var img = document.createElement("img");
         img.src = data[i].image;
-        div.appendChild(img);
+        a.appendChild(img);
         var name = document.createElement("h2");
-        name.innerHTML = data[i].name + " Cena:"+data[i].price+" zł";
-        div.appendChild(name);
-        document.getElementById("products3").appendChild(div);
+        name.innerHTML = data[i].name;
+        a.appendChild(name);
+        var span = document.createElement("span");
+        span.innerHTML = parseFloat(Math.round(data[i].price * 100) / 100).toFixed(2) + " zł";
+        a.appendChild(span);
+        document.getElementById("products3").appendChild(a);
     }
 }
 

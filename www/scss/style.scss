@@ -40,6 +40,17 @@ body {
     }
 }
 
+.back {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
 .usersection, .productssection {
     background: $bgColor;
 }
@@ -151,41 +162,41 @@ body {
         .left.bg {
             border-top: 20px solid $bgColor;
             border-left: 60vw solid transparent;
-            z-index: 2;
+            z-index: 1002;
         }
 
         .right.bg {
             border-top: 20px solid $bgColor;
             border-right: 60vw solid transparent;
-            z-index: 2;
+            z-index: 1002;
         }
 
         .left.up {
             top: 10px;
             border-top: 20px solid aquamarine;
             border-left: 60vw solid transparent;
-            z-index: 1;
+            z-index: 1001;
         }
 
         .left.up {
             top: 10px;
             border-top: 20px solid aquamarine;
             border-right: 60vw solid transparent;
-            z-index: 1;
+            z-index: 1001;
         }
 
         .left.down {
             top: 20px;
             border-top: 20px solid $asbestos;
             border-left: 60vw solid transparent;
-            z-index: 0;
+            z-index: 1000;
         }
 
         .left.down {
             top: 20px;
             border-top: 20px solid $asbestos;
             border-right: 60vw solid transparent;
-            z-index: 0;
+            z-index: 1000;
         }
     }
 
@@ -332,7 +343,7 @@ body {
         background-size: 20px 40px;
         background-position: 50% -30px;
         background-repeat: repeat-x;
-        z-index: 1;
+        z-index: 1001;
     }
 
     .receiptHeader {
@@ -483,5 +494,171 @@ body {
 
     .creditFont {
         font-family: Inconsolata;
+    }
+}
+
+.hello {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 14px 6px 4px 6px;
+}
+
+.search {
+    border-bottom: 1px solid black;
+    margin: 20px 14px 30px;
+    overflow: auto;
+
+    img {
+        height: 1rem;
+        float: left;
+        width: 16px;
+        margin: 1px;
+    }
+
+    input {
+        float: left;
+        width: calc(100% - 20px);
+        border: 0;
+        font-size: 0.78rem;
+        line-height: 18px;
+        padding-left: 8px;
+        outline: none;
+    }
+}
+
+.scrollwrapper {
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.productsContainer {
+    margin: 40px 6px 10px 6px;
+    overflow: auto;
+
+    .header {
+        font-size: 1.1rem;
+        font-weight: 700;
+        float: left;
+        width: 80%;
+        margin-bottom: 8px;
+    }
+
+    .more {
+        float: left;
+        width: 20%;
+        text-align: right;
+        font-weight: 600;
+        font-size: 0.8rem;
+        line-height: 1.1rem;
+        color: $belizeHole;
+        padding-right: 5px;
+    }
+
+    .productsList {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        clear: left;
+        height: 200px;
+
+        .productsItem {
+            float: left;
+            width: 140px;
+            text-decoration: none;
+            color: black;
+            float: left;
+            display: inline-block;
+
+            img {
+                width: 140px;
+                height: 140px;
+            }
+
+            h2 {
+                font-weight: 400;
+                font-size: 0.8rem;
+                margin: 2px 0;
+            }
+
+            span {
+                display: block;
+                font-weight: 600;
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
+
+.productsection {
+    background: $bgColor;
+}
+
+.productsection {
+
+    .imageWrapper {
+        position: relative;
+
+        #productImage {
+            width: 60vw;
+            height: auto;
+            margin: 0 20vw;
+        }
+
+        .addToCart {
+            position: absolute;
+            bottom: 0;
+            right: 20px;
+            border-radius: 50%;
+            background: $wetAsphalt;
+            padding: 16px;
+
+            img {
+                width: 24px;
+                height: 24px;
+                filter: invert(100%);
+            }
+        }
+    }
+
+    .availability {
+
+        .pharmacy {
+            width: 92vw;
+            margin: 0 auto;
+
+            .icon {
+                float: left;
+                width: 12%;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            .data {
+                padding: 7px 18px;
+                font-size: 0.9rem;
+                float: left;
+                width: 60%;
+            }
+
+            .amount {
+                float: left;
+                width: 28%;
+                font-size: 1rem;
+
+                &.bad {
+                    color: red;
+                }
+
+                &.average {
+                    color: orange;
+                }
+
+                &.great {
+                    color: green;
+                }
+            }
+        }
     }
 }
