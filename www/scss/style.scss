@@ -305,6 +305,18 @@ body {
     }
 }
 
+#mapMarker {
+    $size: 36px;
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: $size;
+        height: $size;
+        transform: translateX(-$size/2) translateY(-$size);
+    }
+}
+
 .mapLinks {
     position: absolute;
     bottom: 20px;
