@@ -40,6 +40,17 @@ body {
     }
 }
 
+.back {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
 .usersection, .productssection {
     background: $bgColor;
 }
@@ -151,41 +162,41 @@ body {
         .left.bg {
             border-top: 20px solid $bgColor;
             border-left: 60vw solid transparent;
-            z-index: 2;
+            z-index: 1002;
         }
 
         .right.bg {
             border-top: 20px solid $bgColor;
             border-right: 60vw solid transparent;
-            z-index: 2;
+            z-index: 1002;
         }
 
         .left.up {
             top: 10px;
             border-top: 20px solid aquamarine;
             border-left: 60vw solid transparent;
-            z-index: 1;
+            z-index: 1001;
         }
 
         .left.up {
             top: 10px;
             border-top: 20px solid aquamarine;
             border-right: 60vw solid transparent;
-            z-index: 1;
+            z-index: 1001;
         }
 
         .left.down {
             top: 20px;
             border-top: 20px solid $asbestos;
             border-left: 60vw solid transparent;
-            z-index: 0;
+            z-index: 1000;
         }
 
         .left.down {
             top: 20px;
             border-top: 20px solid $asbestos;
             border-right: 60vw solid transparent;
-            z-index: 0;
+            z-index: 1000;
         }
     }
 
@@ -332,7 +343,7 @@ body {
         background-size: 20px 40px;
         background-position: 50% -30px;
         background-repeat: repeat-x;
-        z-index: 1;
+        z-index: 1001;
     }
 
     .receiptHeader {
@@ -546,12 +557,15 @@ body {
         overflow-x: scroll;
         overflow-y: hidden;
         clear: left;
+        height: 200px;
 
         .productsItem {
             float: left;
             width: 140px;
             text-decoration: none;
             color: black;
+            float: left;
+            display: inline-block;
 
             img {
                 width: 140px;
@@ -571,4 +585,8 @@ body {
             }
         }
     }
+}
+
+.productsection {
+    background: $bgColor;
 }

@@ -62,7 +62,8 @@ function loadProducts(data){
         var a = document.createElement("a");
         a.href = '#';
         a.dataset.section = 'productsection';
-        a.dataset.function = 'loadOneProduct';
+        a.dataset.function = 'getProduct';
+        a.dataset.data = data[i].id;
         a.className = "productsItem";
         var img = document.createElement("img");
         img.src = data[i].image;
@@ -71,7 +72,7 @@ function loadProducts(data){
         name.innerHTML = data[i].name;
         a.appendChild(name);
         var span = document.createElement("span");
-        span.innerHTML = data[i].price + " zł";
+        span.innerHTML = parseFloat(Math.round(data[i].price * 100) / 100).toFixed(2) + " zł";
         a.appendChild(span);
         document.getElementById("products1").appendChild(a);
     }
@@ -80,8 +81,8 @@ function loadProducts(data){
         var a = document.createElement("a");
         a.href = '#';
         a.dataset.section = 'productsection';
-        a.dataset.function = 'loadOneProduct';
-
+        a.dataset.function = 'getProduct';
+        a.dataset.data = data[i].id;
         a.className = "productsItem";
         var img = document.createElement("img");
         img.src = data[i].image;
@@ -90,7 +91,7 @@ function loadProducts(data){
         name.innerHTML = data[i].name;
         a.appendChild(name);
         var span = document.createElement("span");
-        span.innerHTML = data[i].price + " zł";
+        span.innerHTML = parseFloat(Math.round(data[i].price * 100) / 100).toFixed(2) + " zł";
         a.appendChild(span);
         document.getElementById("products2").appendChild(a);
     }
@@ -99,7 +100,8 @@ function loadProducts(data){
         var a = document.createElement("a");
         a.href = '#';
         a.dataset.section = 'productsection';
-        a.dataset.function = 'loadOneProduct';
+        a.dataset.function = 'getProduct';
+        a.dataset.data = data[i].id;
         a.className = "productsItem";
         var img = document.createElement("img");
         img.src = data[i].image;
@@ -108,7 +110,7 @@ function loadProducts(data){
         name.innerHTML = data[i].name;
         a.appendChild(name);
         var span = document.createElement("span");
-        span.innerHTML = data[i].price + " zł";
+        span.innerHTML = parseFloat(Math.round(data[i].price * 100) / 100).toFixed(2) + " zł";
         a.appendChild(span);
         document.getElementById("products3").appendChild(a);
     }
