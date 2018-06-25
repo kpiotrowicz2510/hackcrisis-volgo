@@ -28,6 +28,19 @@ function getProducts(){
     });
 }
 
+function findMe(){
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+         var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+         };
+
+        map.setCenter(pos);
+        });
+    } 
+}
+
 function getProduct(id){
     $.ajax({
         method: "GET",
@@ -37,46 +50,102 @@ function getProduct(id){
     });
 }
 
-function loadOneProduct(data){
+function loadOneProduct(data) {
+    $('#productImage').attr("src", data.image);
     $("#productTitle").text(data.name);
     $("#productPrice").text(data.price);
     $("#productDescription").text(data.description);
     $("#productAvailability").text("Dostępność: "+data.availableAmount + " szt.");
 }
 
+function addProductToProductList(product, listID) {
+
+    var a = document.createElement("a");
+    a.href = '#';
+    a.dataset.section = 'productsection';
+    a.dataset.function = 'getProduct';
+    a.dataset.data = product.id;
+    a.className = "productsItem";
+    var img = document.createElement("img");
+    img.src = product.image;
+    a.appendChild(img);
+    var name = document.createElement("h2");
+    name.innerHTML = product.name;
+    a.appendChild(name);
+
+    var span = document.createElement("span");
+    if (product.priceDiscount != 0.0) {
+        span.innerHTML = "<strike>" + parseFloat(Math.round(product.price * 100) / 100).toFixed(2) + " zł</strike> " + parseFloat(Math.round(product.priceDiscount * 100) / 100).toFixed(2) + " zł";
+    }
+    else {
+        span.innerHTML = parseFloat(Math.round(product.price * 100) / 100).toFixed(2) + " zł";
+    }
+    a.appendChild(span);
+
+    document.getElementById(listID).appendChild(a);
+}
+
+
 function loadProducts(data){
-    for(var i = 0; i<2; i++){
-        var div = document.createElement("div");
-        div.className = "productsItem";
-        var img = document.createElement("img");
-        div.appendChild(img);
-        var name = document.createElement("h2");
-        name.innerHTML = data[i].name + " Cena:"+data[i].price+" zł";
-        div.appendChild(name);
-        document.getElementById("products1").appendChild(div);
+    for (var i = 0; i < 2; i++){
+        addProductToProductList(data[i], "products1");
     }
 
-    for(var i = 3; i<6; i++){
-        var div = document.createElement("div");
-        div.className = "productsItem";
-        var img = document.createElement("img");
-        div.appendChild(img);
-        var name = document.createElement("h2");
-        name.innerHTML = data[i].name + " Cena:"+data[i].price+" zł";
-        div.appendChild(name);
-        document.getElementById("products2").appendChild(div);
+    for (var i = 3; i < 6; i++) {
+        addProductToProductList(data[i], "products2");
     }
 
-    for(var i = 6; i<8; i++){
-        var div = document.createElement("div");
-        div.className = "productsItem";
-        var img = document.createElement("img");
-        div.appendChild(img);
-        var name = document.createElement("h2");
-        name.innerHTML = data[i].name + " Cena:"+data[i].price+" zł";
-        div.appendChild(name);
-        document.getElementById("products3").appendChild(div);
+    for (var i = 6; i < 8; i++) {
+        addProductToProductList(data[i], "products3");
     }
+}
+
+function loadOrder(){
+    $.ajax({
+        method: "GET",
+        url: GLOBALS_siteUrl+"basket",
+    }).done(function(response) {
+        loadOrderData(response.items);
+    });
+}
+
+function loadOrderData(data){
+    for(var i = 0; i<data.length; i++){
+        var amount = data[i].amount;
+        var total = 0.00;
+        $.ajax({
+            method: "GET",
+            url: GLOBALS_siteUrl+"products/"+data[i].idProduct,
+        }).done(function(response) {
+            total = parseFloat(total) + parseFloat(response.price)*amount;
+            $("#priceValue").html(total);
+            loadOrderProduct(response, amount);
+        });
+    }
+}
+
+function loadOrderProduct(data,amount){
+        var div = document.createElement("div");
+        div.className = "product";
+        var name = document.createElement("div");
+        name.className = "name";
+        name.innerHTML = data.name + " <span class='info'>"+amount+" szt.</span>";
+        div.appendChild(name);
+        var price = document.createElement("div");
+        price.className="price";
+        price.innerHTML = (data.price*amount)+"zł";
+        div.appendChild(price);
+        document.getElementById("productsOrder").appendChild(div);
+}
+
+function addNewOrderToBasket(id,amount){
+    $.ajax({
+        method: "POST",
+        url: GLOBALS_siteUrl+"basket/products",
+        data:{IdProduct:id, Amount:amount}
+    }).done(function(response) {
+        
+    });
 }
 
 app.initialize();
