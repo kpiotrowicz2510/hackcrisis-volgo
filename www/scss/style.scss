@@ -466,6 +466,8 @@ body {
         font-size: 0.8rem;
         color: white;
         box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.3);
+        display: block;
+        text-decoration: none;
 
         img {
             height: 30px;
@@ -658,6 +660,7 @@ body {
                 float: left;
                 width: 28%;
                 font-size: 1rem;
+                padding: 11px 0;
 
                 &.bad {
                     color: red;

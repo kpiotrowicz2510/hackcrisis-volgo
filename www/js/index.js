@@ -55,7 +55,7 @@ function loadOneProduct(data) {
     $("#productTitle").text(data.name);
     $("#productPrice").text(data.price);
     $("#productDescription").text(data.description);
-    $("#productAvailability").text("Dostępność: "+data.availableAmount + " szt.");
+    $('.addToCart').data('id', data.id);
 }
 
 function addProductToProductList(product, listID) {
@@ -138,7 +138,8 @@ function loadOrderProduct(data,amount){
         document.getElementById("productsOrder").appendChild(div);
 }
 
-function addNewOrderToBasket(id,amount){
+function addNewOrderToBasket(id, amount) {
+    
     $.ajax({
         method: "POST",
         url: GLOBALS_siteUrl+"basket/products",
