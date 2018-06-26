@@ -474,7 +474,8 @@ function initRealizationMap() {
 
     function loopCar () {          
     setTimeout(function () {
-        calculateAndDisplayRoute();      
+        calculateAndDisplayRoute();    
+        updateTime(i);  
         i++;                     
         if (i < carCoords.length-1) {           
             loopCar();             
@@ -484,7 +485,19 @@ function initRealizationMap() {
 
     loopCar();     
   }
+function updateTime(i){
+    var realTime = "1:20";
+    var time = 120 - i;
+    var minutes = Math.floor(time/60);
+    var secs = time - minutes*60;
+    if(secs<10){
+        secs = "0"+secs;
+    }
 
+    realTime = minutes+":"+secs;
+
+    $("#realizationTime").text(realTime);
+}
 function calculateAndDisplayRoute() {
     var path1 = polyToGo.getPath();
     var path2 = polyTraveled.getPath();
