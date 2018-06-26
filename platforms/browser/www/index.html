@@ -41,7 +41,14 @@
                         map.setCenter(pos);
                     });
                 }
+
+                $.ajax("http://capap.gispartner.pl/maps/493/FeatureServer/0/query?f=geojson&outFields=swiadczeniodawca%2Cmiejscowosc%2Cadres_swiadczeniodawca&where=1=1")
+            .done(function(data){
+                console.log(data);
+            });
             }
+
+            
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhyXfKuDiBfle8lVDqTCPjzO8S8h3In3A&callback=initMap" async defer></script>
 
@@ -224,9 +231,9 @@
 
                 </div>
             </div>
+            <div class="header">Promocje</div>
+            <div class="more">Więcej</div>
             <div class="productsContainer">
-                <div class="header">Promocje</div>
-                <div class="more">Więcej</div>
 
                 <div id="products2" class="productsList">
 
@@ -242,7 +249,7 @@
             </div>
         </div>
 
-        <a id="goToCart" href="#" data-modal="cartModal" data-function="loadOrder">
+        <a class="goToCart" href="#" data-modal="cartModal" data-function="loadOrder">
             <div class="wrapper">
                 <img src="img/cart.png" alt="cart" />
                 Koszyk (<span id="cartSize">1</span>)
@@ -319,7 +326,7 @@
             </div>
         </div>
 
-        <a id="goToCart" href="#" data-modal="cartModal" data-function="loadOrder">
+        <a class="goToCart" href="#" data-modal="cartModal" data-function="loadOrder">
             <div class="wrapper">
                 <img src="img/cart.png" alt="cart" />
                 Koszyk (<span id="cartSize">1</span>)
