@@ -501,7 +501,7 @@ function initRealizationMap() {
         else{
             realizationFinished();
         }
-    }, 100)
+    }, 150)
     }
 
             loopCar();   
@@ -535,7 +535,7 @@ function zoomToObject(obj){
     var bounds = new google.maps.LatLngBounds();
     var points = obj.getPath().getArray();
 
-    if (points.length === 0)
+    if (points.length < 6)
     {
         return;
     }
