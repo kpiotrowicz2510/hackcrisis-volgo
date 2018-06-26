@@ -129,9 +129,23 @@ var marker;
 
 var carSymbol;
 
-function initMap() {
+function realization() {
+
+    $('.modal').fadeOut();
+                initRealizationMap();
+}
+
+function realizationFinished() {
+    let p = $('.bouncingBall .ball');
+    let left = p.offset().left;
+    let top = p.offset().top;
+
+    console.log('todo');
+}
+
+function initRealizationMap() {
     var directionsDisplay = new google.maps.DirectionsRenderer;
-    map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('realizationMap'), {
       zoom: 7,
       center: {lat: 54.372158, lng: 18.638306},
       disableDefaultUI: true,

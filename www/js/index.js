@@ -56,7 +56,7 @@ function loadOneProduct(data) {
     $('#productImage').attr("src", data.image);
     $("#productTitle").text(data.name);
     if (data.priceDiscount != 0.0) {
-        document.getElementById("productPrice").innerHTML = "<strike>" + parseFloat(Math.round(data.price * 100) / 100).toFixed(2) + " zł</strike> " + parseFloat(Math.round(data.priceDiscount * 100) / 100).toFixed(2) + " zł";
+        document.getElementById("productPrice").innerHTML = "<strike>" + parseFloat(Math.round(data.price * 100) / 100).toFixed(2) + " zł</strike> <span>" + parseFloat(Math.round(data.priceDiscount * 100) / 100).toFixed(2) + " zł</span>";
     }
     else {
         document.getElementById("productPrice").innerHTML = parseFloat(Math.round(data.price * 100) / 100).toFixed(2) + " zł";
@@ -82,7 +82,7 @@ function addProductToProductList(product, listID) {
 
     var span = document.createElement("span");
     if (product.priceDiscount != 0.0) {
-        span.innerHTML = "<strike>" + parseFloat(Math.round(product.price * 100) / 100).toFixed(2) + " zł</strike> " + parseFloat(Math.round(product.priceDiscount * 100) / 100).toFixed(2) + " zł";
+        span.innerHTML = "<strike>" + parseFloat(Math.round(product.price * 100) / 100).toFixed(2) + " zł</strike> <span>" + parseFloat(Math.round(product.priceDiscount * 100) / 100).toFixed(2) + " zł</span>";
     }
     else {
         span.innerHTML = parseFloat(Math.round(product.price * 100) / 100).toFixed(2) + " zł";
@@ -99,7 +99,7 @@ function loadProducts(data){
     }
 
     for (var i = 3; i < 6; i++) {
-        document.getElementById("products2").style.width = "420px"
+        document.getElementById("products2").style.width = "420px";
         addProductToProductList(data[i], "products2");
     }
 
@@ -161,3 +161,27 @@ function addNewOrderToBasket(id,amount){
 }
 
 app.initialize();
+
+
+var links = document.querySelectorAll('.ripplelink');
+
+for (var i = 0, len = links.length; i < len; i++) {
+    links[i].addEventListener('click', function (e) {
+        var targetEl = e.target;
+        var inkEl = targetEl.querySelector('.ink');
+
+        if (inkEl) {
+            inkEl.classList.remove('animate');
+        }
+        else {
+            inkEl = document.createElement('span');
+            inkEl.classList.add('ink');
+            inkEl.style.width = inkEl.style.height = Math.max(targetEl.offsetWidth, targetEl.offsetHeight) + 'px';
+            targetEl.appendChild(inkEl);
+        }
+
+        inkEl.style.left = (e.offsetX - inkEl.offsetWidth / 2) + 'px';
+        inkEl.style.top = (e.offsetY - inkEl.offsetHeight / 2) + 'px';
+        inkEl.classList.add('animate');
+    }, false);
+}

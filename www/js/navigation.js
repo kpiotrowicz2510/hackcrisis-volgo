@@ -1,3 +1,4 @@
+
 let reloading = false;
 let currentIndex = 1;
 (function () {
@@ -64,51 +65,60 @@ let currentIndex = 1;
         if (reloading || this.dataset.section == undefined)
             return false;
 
-        reloading = true;
-        let section = this.dataset.section;
-        let direction = this.dataset.direction;
+        let self = this;
+        var f = function () {
 
-        //let appElements = document.querySelectorAll('.app');
-        //for (let i = 0; i < appElements.length; i++)
-        //    appElements[i].style.zIndex = 0;
+            reloading = true;
+            let section = self.dataset.section;
+            let direction = self.dataset.direction;
 
-        let element = document.querySelector("." + section);
-        element.style.top = '0px';
+            //let appElements = document.querySelectorAll('.app');
+            //for (let i = 0; i < appElements.length; i++)
+            //    appElements[i].style.zIndex = 0;
 
-        if (direction != undefined && direction == 'right')
-            element.style.left = '-100vw';
-        else if (direction != undefined && direction == 'top')
-            element.style.top = '-100vh';
-        else if (direction != undefined && direction == 'bottom')
-            element.style.top = '100vh';
-        else
-            element.style.left = '100vw';
+            let element = document.querySelector("." + section);
+            element.style.top = '0px';
 
-        element.style.display = 'block';
-        element.style.zIndex = currentIndex++;
+            if (direction != undefined && direction == 'right')
+                element.style.left = '-100vw';
+            else if (direction != undefined && direction == 'top')
+                element.style.top = '-100vh';
+            else if (direction != undefined && direction == 'bottom')
+                element.style.top = '100vh';
+            else
+                element.style.left = '100vw';
 
-        let pos = 100;
-        let time = 600; // ms
-        let intervalTime = 10; //ms
-        let id = setInterval(frame, intervalTime);
-        function frame() {
-            if (pos <= 0.0) {
-                element.style.left = '0';
-                clearInterval(id);
-                reloading = false;
-            } else {
-                pos -= (intervalTime * 100) / time;
+            element.style.display = 'block';
+            element.style.zIndex = currentIndex++;
 
-                if (direction != undefined && direction == 'right')
-                    element.style.left = '-' + pos + 'vw';
-                else if (direction != undefined && direction == 'top')
-                    element.style.top = '-' + pos + 'vh';
-                else if (direction != undefined && direction == 'bottom')
-                    element.style.top = pos + 'vh';
-                else
-                    element.style.left = pos + 'vw';
+            let pos = 100;
+            let time = 600; // ms
+            let intervalTime = 10; //ms
+            let id = setInterval(frame, intervalTime);
+            function frame() {
+                if (pos <= 0.0) {
+                    element.style.left = '0';
+                    clearInterval(id);
+                    reloading = false;
+                } else {
+                    pos -= (intervalTime * 100) / time;
+
+                    if (direction != undefined && direction == 'right')
+                        element.style.left = '-' + pos + 'vw';
+                    else if (direction != undefined && direction == 'top')
+                        element.style.top = '-' + pos + 'vh';
+                    else if (direction != undefined && direction == 'bottom')
+                        element.style.top = pos + 'vh';
+                    else
+                        element.style.left = pos + 'vw';
+                }
             }
-        }
+        };
+
+        if (this.dataset.delay != undefined)
+            setTimeout(f, this.dataset.delay);
+        else
+            f();
 
         return false;
     });
