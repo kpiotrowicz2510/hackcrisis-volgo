@@ -40,6 +40,7 @@ function findMe(){
             map.setZoom(15);
         });
     } 
+    $(document).blur();
 }
 
 function getProduct(id){
@@ -93,6 +94,7 @@ function addProductToProductList(product, listID) {
 
 
 function loadProducts(data){
+    loadOrder();
     for (var i = 0; i < 2; i++){
         addProductToProductList(data[i], "products1");
     }
@@ -118,6 +120,7 @@ function loadOrder(){
 }
 
 function loadOrderData(data){
+    document.getElementById("productsOrder").innerHTML = "";
     for(var i = 0; i<data.length; i++){
         var amount = data[i].amount;
         var total = 0.00;
@@ -146,12 +149,14 @@ function loadOrderProduct(data,amount){
         div.appendChild(name);
         var price = document.createElement("div");
         price.className="price";
+
         if (data.priceDiscount != 0.0) {
             price.innerHTML = parseFloat(Math.round((data.priceDiscount * amount) * 100) / 100).toFixed(2) + "zł";
         }
         else {
             price.innerHTML = parseFloat(Math.round((data.price * amount) * 100) / 100).toFixed(2) + "zł";
         }
+
         div.appendChild(price);
         document.getElementById("productsOrder").appendChild(div);
 }
@@ -167,6 +172,13 @@ function addNewOrderToBasket(id,amount){
     }).done(function(response) {
         loadOrder();
     });
+}
+
+function loadMZData(){
+    $.ajax("http://capap.gispartner.pl/maps/493/FeatureServer/0/query?f=geojson&outFields=swiadczeniodawca%2Cmiejscowosc%2Cadres_swiadczeniodawca&where=1=1")
+            .done(function(data){
+                console.log(data);
+            });
 }
 
 app.initialize();
