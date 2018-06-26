@@ -92,17 +92,24 @@ function addProductToProductList(product, listID) {
     document.getElementById(listID).appendChild(a);
 }
 
+function removeContent(id){
+    document.getElementById(id).innerHTML = '';
+}
 
 function loadProducts(data){
+    loadOrder();
+    removeContent("products1");
     for (var i = 0; i < 2; i++){
         addProductToProductList(data[i], "products1");
     }
 
+    removeContent("products2");
     for (var i = 3; i < 6; i++) {
         document.getElementById("products2").style.width = "420px";
         addProductToProductList(data[i], "products2");
     }
 
+    removeContent("products3");
     for (var i = 6; i < 8; i++) {
         addProductToProductList(data[i], "products3");
     }
@@ -119,6 +126,7 @@ function loadOrder(){
 }
 
 function loadOrderData(data){
+    document.getElementById("productsOrder").innerHTML = "";
     for(var i = 0; i<data.length; i++){
         var amount = data[i].amount;
         var total = 0.00;
@@ -126,8 +134,13 @@ function loadOrderData(data){
             method: "GET",
             url: GLOBALS_siteUrl+"products/"+data[i].idProduct,
         }).done(function(response) {
-            total = parseFloat(total) + parseFloat(response.price)*amount;
-            $("#priceValue").html(total);
+            if (response.priceDiscount != 0.0) {
+                total = parseFloat(total) + parseFloat(response.priceDiscount)*amount;
+            }
+            else {
+                 total = parseFloat(total) + parseFloat(response.price)*amount;
+            }
+            $("#priceValue").html(total.toFixed(2));
             loadOrderProduct(response, amount);
         });
     }
@@ -142,7 +155,12 @@ function loadOrderProduct(data,amount){
         div.appendChild(name);
         var price = document.createElement("div");
         price.className="price";
-        price.innerHTML = parseFloat(Math.round((data.price * amount) * 100) / 100).toFixed(2) + "zł";
+        if (data.priceDiscount != 0.0) {
+            price.innerHTML = parseFloat(Math.round((data.priceDiscount * amount) * 100) / 100).toFixed(2) + "zł";
+        }
+        else {
+            price.innerHTML = parseFloat(Math.round((data.price * amount) * 100) / 100).toFixed(2) + "zł";
+        }
         div.appendChild(price);
         document.getElementById("productsOrder").appendChild(div);
 }
@@ -158,6 +176,10 @@ function addNewOrderToBasket(id,amount){
     }).done(function(response) {
         loadOrder();
     });
+}
+
+function loadMZData(){
+    
 }
 
 app.initialize();

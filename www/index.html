@@ -43,6 +43,8 @@
                     });
                 }
             }
+
+            
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhyXfKuDiBfle8lVDqTCPjzO8S8h3In3A&callback=initMap" async defer></script>
 
@@ -218,29 +220,31 @@
                 <img src="img/search.png" alt="search" />
                 <input type="text" placeholder="Czego szukasz?">
             </div>
-            <div class="productsContainer">
+            <div class="productsLabels">
                 <div class="header">Ostatnio przeglądane</div>
                 <div class="more">Więcej</div>
-
-                <div id="products1" class="productsList">
-
-                </div>
             </div>
-            <div class="header">Promocje</div>
-            <div class="more">Więcej</div>
+
             <div class="productsContainer">
-
-                <div id="products2" class="productsList">
-
-                </div>
+                <div id="products1" class="productsList"></div>
             </div>
+            
+            <div class="productsLabels">
+                <div class="header">Promocje</div>
+                <div class="more">Więcej</div>
+            </div>
+
             <div class="productsContainer">
+                <div id="products2" class="productsList"></div>
+            </div>
+            
+            <div class="productsLabels">
                 <div class="header">Polecane dla Ciebie</div>
                 <div class="more">Więcej</div>
-
-                <div id="products3" class="productsList">
-
-                </div>
+            </div>
+            
+            <div class="productsContainer">
+                <div id="products3" class="productsList"></div>
             </div>
         </div>
 

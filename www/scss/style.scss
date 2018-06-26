@@ -592,6 +592,7 @@ body {
 .scrollwrapper {
     height: 100vh;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .header {
@@ -613,8 +614,14 @@ body {
     padding-right: 5px;
 }
 
+.productsLabels {
+    margin: 0 8px;
+    width: 95%;
+    display: inline-block;
+}
+
 .productsContainer {
-    margin: 40px 6px 10px 6px;
+    margin: 10px 6px 10px 6px;
     overflow: auto;
 
     .productsList {
