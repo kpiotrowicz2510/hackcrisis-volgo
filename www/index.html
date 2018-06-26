@@ -16,6 +16,7 @@
         <script>
             var map;
             function initMap() {
+
                 map = new google.maps.Map(document.getElementById('map'), {
                     center: { lat: 54.500010, lng: 18.536883 },
                     zoom: 10,
@@ -34,7 +35,6 @@
             title: pharmacies[i].properties.nazwa_apteki_new
         });
     }
-
 
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(function (position) {
@@ -58,31 +58,32 @@
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhyXfKuDiBfle8lVDqTCPjzO8S8h3In3A&callback=initMap" async defer></script>
 
-        <a id="createOrder" href="#" data-section="productssection" data-function="getProducts">
-            <span class="content">
-                Stwórz zamównienie
-            </span>
-            <div class="icon">
-                <img src="img/order.png" alt="order" />
-            </div>
-            <div class="separator">
 
-            </div>
-        </a>
+        <a id="createOrder" href="#" data-section="productssection" data-function="getProducts" data-delay="300">
+                <span class="content">
+                    Stwórz zamównienie
+                </span>
+                <div class="icon">
+                    <img src="img/order.png" alt="order" />
+                </div>
+                <div class="separator">
 
-        <div class="mapLinks">
-            <a class="link" href="#" data-section="usersection" data-direction="bottom">
-                <img src="img/cogs.png" alt="cogs" />
+                </div>
             </a>
 
-            <a class="link" href="#" data-function="findMe">
-                <img src="img/finder.png" alt="finder" />
-            </a>
-        </div>
+            <div class="mapLinks">
+                <a class="link" href="#" data-section="usersection" data-direction="bottom">
+                    <img src="img/cogs.png" alt="cogs" />
+                </a>
 
-        <div id="mapMarker">
-            <img src="img/marker.png" alt="marker" />
-        </div>
+                <a class="link" href="#" data-function="findMe">
+                    <img src="img/finder.png" alt="finder" />
+                </a>
+            </div>
+
+            <div id="mapMarker">
+                <img src="img/marker.png" alt="marker" />
+            </div>
     </div>
     <div class="app usersection">
         <a href="#" data-section="initsection" data-direction="top" class="close link">
@@ -138,7 +139,7 @@
                     </div>
                     <div class="linkValue">
                         &bull;&bull;&bull;&bull; 6870
-                        <img src="img/mastercard.jpg" alt="mastercard" />
+                        <img src="img/mastercard.png" alt="mastercard" />
                     </div>
                 </a>
 
@@ -287,6 +288,9 @@
 
                 <svg class="checkIcon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="90.594px" height="59.714px" viewBox="0 0 90.594 59.714" enable-background="new 0 0 90.594 59.714" xml:space="preserve">
                 <polyline class="check" fill="none" stroke="white" stroke-width="10" stroke-miterlimit="10" points="1.768,23.532 34.415,56.179 88.826,1.768" />
+
+
+
                 </svg>
             </a>
         </div>
@@ -383,7 +387,7 @@
 
         <div class="paymentCards">
 
-            <a class="card mastercard" href="#" data-section="realization">
+            <a class="card mastercard" href="#" data-section="realizationsection" data-function="realization" data-delay="300">
                 <img src="img/mastercardicon.png" alt="Mastercard" />
 
                 <div class="cardData">
@@ -406,9 +410,30 @@
         </div>
 
     </div>
+
+
+    <div class="app realizationsection">
+        <a href="#" data-section="initsection" data-direction="right" class="close link">
+            <img src="img/close.png" alt="close" />
+        </a>
+
+        <div id="realizationMap"></div>
+
+        <div id="realizationStatus">
+            <div class="wrapper">
+                <div class="bouncingBall">
+                    <div class="ball"></div>
+                </div>
+            </div>
+
+            <div class="statusName pulsate">Zamównienie w realizacji</div>
+            <div class="statusTime">Przewidywany czas: <span id='realizationTime'>1:20</span></div>
+        </div>
+    </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/navigation.js"></script>
+    <script type="text/javascript" src="js/realization.js"></script>
 </body>
 </html>

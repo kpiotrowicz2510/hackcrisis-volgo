@@ -129,9 +129,34 @@ var marker;
 
 var carSymbol;
 
-function initMap() {
+function clearBasket(){
+    $.ajax({
+        method: "DELETE",
+        url: GLOBALS_siteUrl+"basket/products",
+    }).done(function(response) {
+        loadOrder();
+    });
+}
+
+function realization() {
+
+    $('.modal').fadeOut();
+                initRealizationMap();
+
+    clearBasket();
+}
+
+function realizationFinished() {
+    let p = $('.bouncingBall .ball');
+    let left = p.offset().left;
+    let top = p.offset().top;
+
+    console.log('todo');
+}
+
+function initRealizationMap() {
     var directionsDisplay = new google.maps.DirectionsRenderer;
-    map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('realizationMap'), {
       zoom: 7,
       center: {lat: 54.372158, lng: 18.638306},
       disableDefaultUI: true,
@@ -460,7 +485,8 @@ function initMap() {
 
     function loopCar () {          
     setTimeout(function () {
-        calculateAndDisplayRoute();      
+        calculateAndDisplayRoute();    
+        updateTime(i);  
         i++;                     
         if (i < carCoords.length-1) {           
             loopCar();             
@@ -470,7 +496,19 @@ function initMap() {
 
     loopCar();     
   }
+function updateTime(i){
+    var realTime = "1:20";
+    var time = 120 - i;
+    var minutes = Math.floor(time/60);
+    var secs = time - minutes*60;
+    if(secs<10){
+        secs = "0"+secs;
+    }
 
+    realTime = minutes+":"+secs;
+
+    $("#realizationTime").text(realTime);
+}
 function calculateAndDisplayRoute() {
     var path1 = polyToGo.getPath();
     var path2 = polyTraveled.getPath();
