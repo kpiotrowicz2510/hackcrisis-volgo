@@ -6,6 +6,16 @@ let currentIndex = 1;
     $(document).on("click", "a", function () {
 
         if ($(this).hasClass('modalClose')) {
+
+            if ($(this).parent('.realizationModal').length) {
+                mapController.InitalizeInitialMap();
+                $('.productssection .close').click();
+            }
+            if ($(this).parent('.realizationsection').length) {
+                mapController.InitalizeInitialMap();
+                $('.productssection .close').click();
+            }
+
             $('.modal').fadeOut();
             return false;
         }
