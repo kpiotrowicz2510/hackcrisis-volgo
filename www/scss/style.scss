@@ -307,6 +307,7 @@ body {
 
 #mapMarker {
     $size: 36px;
+
     img {
         position: absolute;
         top: 50%;
@@ -338,7 +339,7 @@ body {
         }
     }
 }
- 
+
 .modal {
     position: absolute;
     top: 0;
@@ -381,6 +382,7 @@ body {
     }
 
     .receiptHeader {
+        padding-top: 10px;
         overflow: auto;
     }
 
@@ -418,7 +420,7 @@ body {
 
     .orderName {
         clear: both;
-        margin: 20px 10px;
+        margin: 30px 10px 20px;
         font-weight: 500;
         font-size: 1.1rem;
     }
@@ -481,7 +483,11 @@ body {
 .paymentCards {
 
     .card {
-        background: $wetAsphalt;
+        background: #34495e;
+        background: -moz-linear-gradient(-45deg, #34495e 0%, #2c3e50 100%);
+        background: -webkit-linear-gradient(-45deg, #34495e 0%,#2c3e50 100%);
+        background: linear-gradient(135deg, #34495e 0%,#2c3e50 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#34495e', endColorstr='#2c3e50',GradientType=1 );
         border-radius: 10px;
         width: 80vw;
         position: relative;
@@ -489,7 +495,7 @@ body {
         margin: 35px auto 10px;
         font-size: 0.8rem;
         color: white;
-        box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
         display: block;
         text-decoration: none;
 
@@ -631,6 +637,35 @@ body {
 
 .productsection {
 
+    .productFade {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.8);
+        display: none;
+        z-index: 1000;
+
+        .status {
+            position: absolute;
+            top: 350px;
+            color: white;
+            font-size: 1.1rem;
+            text-align: center;
+            width: 100vw;
+        }
+
+        .desc {
+            position: absolute;
+            top: 380px;
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+            width: 100vw;
+        }
+    }
+
     .imageWrapper {
         position: relative;
 
@@ -643,10 +678,15 @@ body {
         .addToCart {
             position: absolute;
             bottom: 0;
-            right: 20px;
+            right: 48px;
             border-radius: 50%;
             background: $wetAsphalt;
             padding: 16px;
+            width: 56px;
+            height: 56px;
+            transform: translateX(28px);
+            transition: background-color 0.6s;
+            z-index: 1001;
 
             img {
                 width: 24px;
@@ -725,4 +765,17 @@ body {
             margin-right: 6px;
         }
     }
+}
+
+svg.checkIcon {
+    position: relative;
+    left: -2px;
+    top: 2px;
+}
+.check {
+    stroke-dasharray: 130px 130px;
+    stroke-dashoffset: 130px;
+    -webkit-transition: stroke-dashoffset 4.1s linear 0s;
+    transition: stroke-dashoffset 500ms ease-in-out;
+    transform: scale(0.35, 0.35);
 }
