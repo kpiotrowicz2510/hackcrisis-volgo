@@ -579,6 +579,7 @@ body {
 .scrollwrapper {
     height: 100vh;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .header {
@@ -602,7 +603,7 @@ body {
 
 .productsLabels {
     margin: 0 8px;
-    width: 96%;
+    width: 95%;
     display: inline-block;
 }
 
