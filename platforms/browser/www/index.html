@@ -17,18 +17,18 @@
             var map;
             function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), {
-                    center: { lat: -34.397, lng: 150.644 },
+                    center: { lat: 54.500010, lng: 18.536883 },
                     zoom: 10,
                     disableDefaultUI: true,
                     styles: [{ "featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{ "color": "#6195a0" }] }, { "featureType": "administrative.country", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "administrative.province", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "administrative.province", "elementType": "geometry.stroke", "stylers": [{ "visibility": "off" }] }, { "featureType": "administrative.locality", "elementType": "all", "stylers": [{ "visibility": "on" }] }, { "featureType": "administrative.locality", "elementType": "labels", "stylers": [{ "visibility": "on" }] }, { "featureType": "administrative.neighborhood", "elementType": "all", "stylers": [{ "visibility": "on" }] }, { "featureType": "administrative.land_parcel", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "lightness": "0" }, { "saturation": "0" }, { "color": "#f5f5f2" }, { "gamma": "1" }] }, { "featureType": "landscape.man_made", "elementType": "all", "stylers": [{ "lightness": "-3" }, { "gamma": "1.00" }] }, { "featureType": "landscape.natural.terrain", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi.park", "elementType": "geometry.fill", "stylers": [{ "color": "#bae5ce" }, { "visibility": "on" }] }, { "featureType": "road", "elementType": "all", "stylers": [{ "saturation": -100 }, { "lightness": 45 }, { "visibility": "simplified" }] }, { "featureType": "road.highway", "elementType": "all", "stylers": [{ "visibility": "simplified" }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#fac9a9" }, { "visibility": "simplified" }] }, { "featureType": "road.highway", "elementType": "labels.text", "stylers": [{ "color": "#4e4e4e" }] }, { "featureType": "road.arterial", "elementType": "labels.text.fill", "stylers": [{ "color": "#787878" }] }, { "featureType": "road.arterial", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "elementType": "all", "stylers": [{ "visibility": "simplified" }] }, { "featureType": "transit.station.airport", "elementType": "labels.icon", "stylers": [{ "hue": "#0a00ff" }, { "saturation": "-77" }, { "gamma": "0.57" }, { "lightness": "0" }] }, { "featureType": "transit.station.rail", "elementType": "labels.text.fill", "stylers": [{ "color": "#43321e" }] }, { "featureType": "transit.station.rail", "elementType": "labels.icon", "stylers": [{ "hue": "#ff6c00" }, { "lightness": "4" }, { "gamma": "0.75" }, { "saturation": "-68" }] }, { "featureType": "water", "elementType": "all", "stylers": [{ "color": "#eaf6f8" }, { "visibility": "on" }] }, { "featureType": "water", "elementType": "geometry.fill", "stylers": [{ "color": "#c7eced" }] }, { "featureType": "water", "elementType": "labels.text.fill", "stylers": [{ "lightness": "-49" }, { "saturation": "-53" }, { "gamma": "0.79" }] }]
                 });
 
                 if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function(position) {
-                     var pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                     };
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        var pos = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
 
                         map.setCenter(pos);
                     });
@@ -42,7 +42,7 @@
                 Stwórz zamównienie
             </span>
             <div class="icon">
-                <img src="img/order.png" alt="order" />
+                <img src="img/order.png" alt="order">
             </div>
             <div class="separator">
 
@@ -51,26 +51,29 @@
 
         <div class="mapLinks">
             <a class="link" href="#" data-section="usersection" data-direction="bottom">
-                <img src="img/cogs.png" alt="cogs" />
+                <img src="img/cogs.png" alt="cogs">
             </a>
 
             <a class="link" href="#" data-function="findMe">
-                <img src="img/finder.png" alt="finder" />
+                <img src="img/finder.png" alt="finder">
             </a>
         </div>
 
+        <div id="mapMarker">
+            <img src="img/marker.png" alt="marker">
+        </div>
     </div>
     <div class="app usersection">
         <a href="#" data-section="initsection" data-direction="top" class="close link">
-            <img src="img/close.png" alt="close" />
+            <img src="img/close.png" alt="close">
         </a>
         <div class="user">
             <div class="name">Anna Jurkiewicz</div>
             <div class="location">Gdynia, Polska</div>
 
             <div class="avatar">
-                <img class="photo" src="img/avatar.jpg" alt="Anna Jurkiewicz" />
-                <img class="country" src="img/poland.png" alt="Polska" />
+                <img class="photo" src="img/avatar.jpg" alt="Anna Jurkiewicz">
+                <img class="country" src="img/poland.png" alt="Polska">
             </div>
 
             <div class="nickname">@spokoanka</div>
@@ -110,11 +113,11 @@
                         Metoda płatności
                     </div>
                     <div class="linkArrow">
-                        <img src="img/forward.png" alt="forward" />
+                        <img src="img/forward.png" alt="forward">
                     </div>
                     <div class="linkValue">
                         &bull;&bull;&bull;&bull; 6870
-                        <img src="img/mastercard.jpg" alt="mastercard" />
+                        <img src="img/mastercard.jpg" alt="mastercard">
                     </div>
                 </a>
 
@@ -130,7 +133,7 @@
                         Numer telefonu
                     </div>
                     <div class="linkArrow">
-                        <img src="img/forward.png" alt="forward" />
+                        <img src="img/forward.png" alt="forward">
                     </div>
                     <div class="linkValue">
                         600 451 232
@@ -149,7 +152,7 @@
                         Adres
                     </div>
                     <div class="linkArrow">
-                        <img src="img/forward.png" alt="forward" />
+                        <img src="img/forward.png" alt="forward">
                     </div>
                     <div class="linkValue">
                         ul. 3 Maja, Gdynia
@@ -168,7 +171,7 @@
                         Moje zamównienia
                     </div>
                     <div class="linkArrow">
-                        <img src="img/forward.png" alt="forward" />
+                        <img src="img/forward.png" alt="forward">
                     </div>
                     <div class="linkValue">
                     </div>
@@ -186,7 +189,7 @@
                         Kod promocyjny
                     </div>
                     <div class="linkArrow">
-                        <img src="img/forward.png" alt="forward" />
+                        <img src="img/forward.png" alt="forward">
                     </div>
                     <div class="linkValue">
                     </div>
@@ -196,13 +199,13 @@
     </div>
     <div class="app productssection">
         <a href="#" data-section="initsection" data-direction="right" class="close link">
-            <img src="img/close.png" alt="close" />
+            <img src="img/close.png" alt="close">
         </a>
         <div class="scrollwrapper">
             <div class="hello">Dzień dobry Anna</div>
 
             <div class="search">
-                <img src="img/search.png" alt="search" />
+                <img src="img/search.png" alt="search">
                 <input type="text" placeholder="Czego szukasz?">
             </div>
             <div class="productsContainer">
@@ -230,20 +233,27 @@
                 </div>
             </div>
         </div>
+
+        <a id="goToCart" href="#" data-modal="cartModal" data-function="loadOrder">
+            <div class="wrapper">
+                <img src="img/cart.png" alt="cart">
+                Koszyk (<span id="cartSize">1</span>)
+            </div>
+        </a>
     </div>
     <div class="app productsection">
         <a href="#" data-section="initsection" data-direction="right" class="close link">
-            <img src="img/close.png" alt="close" />
+            <img src="img/close.png" alt="close">
         </a>
         <a href="#" data-section="productssection" data-direction="right" class="back link">
-            <img src="img/back.png" alt="back" />
+            <img src="img/back.png" alt="back">
         </a>
 
         <div class="imageWrapper">
-            <img src="img/unknown.png" alt="unknown" id="productImage" />
-            <div class="addToCart">
-                <img src="img/cart.png" alt="cart" />
-            </div>
+            <img src="img/unknown.png" alt="unknown" id="productImage">
+            <a href="#" class="addToCart">
+                <img src="img/cart.png" alt="cart">
+            </a>
         </div>
 
         <h1 id="productTitle"></h1>
@@ -253,7 +263,7 @@
         <div class="availability">
             <div class="pharmacy">
                 <div class="icon">
-                    <img src="img/aptekagemini.png" alt="gemini" />
+                    <img src="img/aptekagemini.png" alt="gemini">
                 </div>
                 <div class="data">
                     <div class="name">Apteka Gemini</div>
@@ -265,7 +275,7 @@
             </div>
             <div class="pharmacy">
                 <div class="icon">
-                    <img src="img/aptekadoz.jpg" alt="doz" />
+                    <img src="img/aptekadoz.jpg" alt="doz">
                 </div>
                 <div class="data">
                     <div class="name">Apteka Gemini</div>
@@ -277,27 +287,36 @@
             </div>
             <div class="pharmacy">
                 <div class="icon">
-                    <img src="img/aptekadrmax.jpg" alt="drmax" />
+                    <img src="img/aptekadrmax.jpg" alt="drmax">
                 </div>
                 <div class="data">
                     <div class="name">Apteka D.Max</div>
                     <div class="address">ul. Świętojańska 2, Gdynia</div>
                 </div>
                 <div class="amount average">
-                    3 sztuk
+                    3 sztuki
                 </div>
             </div>
         </div>
+
+        <a id="goToCart" href="#" data-modal="cartModal" data-function="loadOrder">
+            <div class="wrapper">
+                <img src="img/cart.png" alt="cart">
+                Koszyk (<span id="cartSize">1</span>)
+            </div>
+        </a>
     </div>
-    <!-- TODO: loadOrder(); -->
-    <div class="modal" style="display: none;">
+    <div class="modal cartModal" style="display: none">
+        <a href="#" data-section="initsection" data-direction="top" class="modalClose link">
+            <img src="img/close.png" alt="close">
+        </a>
         <div class="modalBlur">
 
         </div>
         <div class="receipt">
             <div class="receiptHeader">
                 <div class="brand">
-                    <img src="img/logo.png" alt="Logo" />
+                    <img src="img/logo.png" alt="Logo">
                     <div class="brandText">PharmaGO</div>
                 </div>
                 <div class="timestamp">
@@ -329,8 +348,8 @@
 
         <div class="paymentCards">
 
-            <div class="card mastercard">
-                <img src="img/mastercardicon.png" alt="Mastercard" />
+            <a class="card mastercard" href="#" data-section="realization">
+                <img src="img/mastercardicon.png" alt="Mastercard">
 
                 <div class="cardData">
 
@@ -348,7 +367,7 @@
                         <div class="value creditFont">09/2020</div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
 
     </div>
