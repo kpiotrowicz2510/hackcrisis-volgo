@@ -92,18 +92,24 @@ function addProductToProductList(product, listID) {
     document.getElementById(listID).appendChild(a);
 }
 
+function removeContent(id){
+    document.getElementById(id).innerHTML = '';
+}
 
 function loadProducts(data){
     loadOrder();
+    removeContent("products1");
     for (var i = 0; i < 2; i++){
         addProductToProductList(data[i], "products1");
     }
 
+    removeContent("products2");
     for (var i = 3; i < 6; i++) {
         document.getElementById("products2").style.width = "420px"
         addProductToProductList(data[i], "products2");
     }
 
+    removeContent("products3");
     for (var i = 6; i < 8; i++) {
         addProductToProductList(data[i], "products3");
     }
