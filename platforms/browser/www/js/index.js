@@ -149,14 +149,12 @@ function loadOrderProduct(data,amount){
         div.appendChild(name);
         var price = document.createElement("div");
         price.className="price";
-
         if (data.priceDiscount != 0.0) {
             price.innerHTML = parseFloat(Math.round((data.priceDiscount * amount) * 100) / 100).toFixed(2) + "zł";
         }
         else {
             price.innerHTML = parseFloat(Math.round((data.price * amount) * 100) / 100).toFixed(2) + "zł";
         }
-
         div.appendChild(price);
         document.getElementById("productsOrder").appendChild(div);
 }
