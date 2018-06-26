@@ -148,6 +148,7 @@ function realization() {
 
 function realizationFinished() {
     $('.realizationModal').fadeIn();
+    mapController.GeoLocalizate();
 }
 
 function initRealizationMap() {
