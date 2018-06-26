@@ -490,16 +490,19 @@ function initRealizationMap() {
 
             var i = 0;
 
-            function loopCar() {
-                setTimeout(function () {
-                    calculateAndDisplayRoute();
-                    updateTime(i);
-                    i++;
-                    if (i < carCoords.length - 1) {
-                        loopCar();
-                    }
-                }, 500)
-            }
+    function loopCar () {          
+    setTimeout(function () {
+        calculateAndDisplayRoute();    
+        updateTime(i);  
+        i++;                     
+        if (i < carCoords.length-1) {           
+            loopCar();             
+        } 
+        else{
+            realizationFinished();
+        }
+    }, 100)
+    }
 
             loopCar();   
 
