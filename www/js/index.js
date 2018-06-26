@@ -98,6 +98,7 @@ function loadProducts(data){
     }
 
     for (var i = 3; i < 6; i++) {
+        document.getElementById("products2").style.width = "420px"
         addProductToProductList(data[i], "products2");
     }
 
@@ -140,7 +141,7 @@ function loadOrderProduct(data,amount){
         div.appendChild(name);
         var price = document.createElement("div");
         price.className="price";
-        price.innerHTML = (data.price*amount)+"zł";
+        price.innerHTML = parseFloat(Math.round((data.price * amount) * 100) / 100).toFixed(2) + "zł";
         div.appendChild(price);
         document.getElementById("productsOrder").appendChild(div);
 }
