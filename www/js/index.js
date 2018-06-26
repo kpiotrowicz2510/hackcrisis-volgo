@@ -40,6 +40,7 @@ function findMe(){
             map.setZoom(15);
         });
     } 
+    $(document).blur();
 }
 
 function getProduct(id){
