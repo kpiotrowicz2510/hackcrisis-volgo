@@ -70,6 +70,7 @@ body {
     background: $bgColor;
 }
 
+
 .user {
     margin: 30px 0 0 0;
     overflow: auto;
@@ -156,17 +157,20 @@ body {
         position: relative;
         width: 100%;
         height: 100px;
+        background: #f3f3f3;
+
+        $widthSpacer: 100vw;
 
         .down {
-            border-color: #34495e;
+            border-color: $peterRiver;
         }
 
         .left {
-            left: -10vw;
+            left: 50vw - $widthSpacer;
         }
 
         .right {
-            right: -10vw;
+            right: 50vw - $widthSpacer;
         }
 
         * {
@@ -176,47 +180,48 @@ body {
 
         .left.bg {
             border-top: 20px solid $bgColor;
-            border-left: 60vw solid transparent;
+            border-left: $widthSpacer solid transparent;
             z-index: 1002;
         }
 
         .right.bg {
             border-top: 20px solid $bgColor;
-            border-right: 60vw solid transparent;
+            border-right: $widthSpacer solid transparent;
             z-index: 1002;
         }
 
         .left.up {
             top: 10px;
-            border-top: 20px solid aquamarine;
-            border-left: 60vw solid transparent;
+            border-top: 20px solid $belizeHole;
+            border-left: $widthSpacer solid transparent;
             z-index: 1001;
         }
 
         .left.up {
             top: 10px;
-            border-top: 20px solid aquamarine;
-            border-right: 60vw solid transparent;
+            border-top: 20px solid $belizeHole;
+            border-right: $widthSpacer solid transparent;
             z-index: 1001;
         }
 
         .left.down {
             top: 20px;
-            border-top: 20px solid $asbestos;
-            border-left: 60vw solid transparent;
+            border-top: 20px solid $peterRiver;
+            border-left: $widthSpacer solid transparent;
             z-index: 1000;
         }
 
         .left.down {
             top: 20px;
-            border-top: 20px solid $asbestos;
-            border-right: 60vw solid transparent;
+            border-top: 20px solid $peterRiver;
+            border-right: $widthSpacer solid transparent;
             z-index: 1000;
         }
     }
 
 
     .links {
+        background: #f3f3f3;
 
         .linkSpacer {
             background: $silver;
@@ -518,6 +523,11 @@ body {
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
         display: block;
         text-decoration: none;
+        transition: all .2s ease-in-out;
+
+        &:active {
+            transform: scale(0.95);
+        }
 
         img {
             height: 30px;
