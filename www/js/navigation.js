@@ -55,7 +55,10 @@ let currentIndex = 1;
         }
         if (this.dataset.modal != undefined) {
 
-            $('.' + this.dataset.modal).fadeIn();
+            let elem = this;
+            setTimeout(function () {
+                $('.' + elem.dataset.modal).fadeIn();
+            }, 300);
         }
 
         if (reloading || this.dataset.section == undefined)

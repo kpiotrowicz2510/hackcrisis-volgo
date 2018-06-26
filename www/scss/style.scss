@@ -4,7 +4,7 @@ $peterRiver: #3498db;
 $belizeHole: #2980b9;
 $silver: #bdc3c7;
 $bgColor: white;
-
+$midnightBlue: #2c3e50;
 * {
     box-sizing: border-box;
 }
@@ -19,6 +19,7 @@ $bgColor: white;
 
 #productDescription {
     margin: 2vh 5vh;
+    font-weight: 400;
 }
 
 img {
@@ -331,12 +332,18 @@ body {
         box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.6);
         float: right;
         border-radius: 5px;
+        transition: background 0.2s, filter 0.2s;
 
         img {
             width: 24px;
             height: 24px;
             margin: 8px;
         }
+    }
+
+    .link:active {
+        background: darken($bgColor, 20%);
+        filter: invert(100%);
     }
 }
 
@@ -552,18 +559,18 @@ body {
     overflow: auto;
 
     img {
-        height: 1rem;
+        height: 20px;
         float: left;
-        width: 16px;
+        width: 20px;
         margin: 1px;
     }
 
     input {
         float: left;
-        width: calc(100% - 20px);
+        width: calc(100% - 22px);
         border: 0;
-        font-size: 0.78rem;
-        line-height: 18px;
+        font-size: 0.9rem;
+        line-height: 22px;
         padding-left: 8px;
         outline: none;
     }
@@ -634,6 +641,10 @@ body {
                 font-size: 0.8rem;
             }
         }
+    }
+
+    &:last-of-type {
+        margin-bottom: 36px;
     }
 }
 
@@ -748,7 +759,7 @@ body {
     }
 }
 
-#goToCart {
+.goToCart {
     position: fixed;
     bottom: 5px;
     left: 50%;
@@ -757,8 +768,17 @@ body {
     background: $peterRiver;
     border-radius: 5px;
     color: $bgColor;
-    padding: 4px 0;
+    padding: 7px 0;
     text-decoration: none;
+    border-bottom: 2px solid $wetAsphalt;
+    transition: all 0.3s;
+    box-shadow: 3px 2px 0 0 rgba(0, 0, 0, 0.2);
+
+    &:active {
+        border-bottom: 1px solid $midnightBlue;
+        box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.2);
+        background: darken($peterRiver, 30%);
+    }
 
     .wrapper {
         text-align: center;
