@@ -487,7 +487,10 @@ function initRealizationMap() {
         if (i < carCoords.length-1) {           
             loopCar();             
         } 
-    }, 500)
+        else{
+            realizationFinished();
+        }
+    }, 100)
     }
 
     loopCar();     
