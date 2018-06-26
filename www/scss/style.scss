@@ -568,28 +568,28 @@ body {
     overflow-y: scroll;
 }
 
+.header {
+    font-size: 1.1rem;
+    font-weight: 700;
+    float: left;
+    width: 80%;
+    margin-bottom: 8px;
+}
+
+.more {
+    float: left;
+    width: 20%;
+    text-align: right;
+    font-weight: 600;
+    font-size: 0.8rem;
+    line-height: 1.1rem;
+    color: $belizeHole;
+    padding-right: 5px;
+}
+
 .productsContainer {
     margin: 40px 6px 10px 6px;
     overflow: auto;
-
-    .header {
-        font-size: 1.1rem;
-        font-weight: 700;
-        float: left;
-        width: 80%;
-        margin-bottom: 8px;
-    }
-
-    .more {
-        float: left;
-        width: 20%;
-        text-align: right;
-        font-weight: 600;
-        font-size: 0.8rem;
-        line-height: 1.1rem;
-        color: $belizeHole;
-        padding-right: 5px;
-    }
 
     .productsList {
         overflow-x: scroll;

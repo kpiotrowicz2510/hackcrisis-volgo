@@ -98,6 +98,7 @@ function loadProducts(data){
     }
 
     for (var i = 3; i < 6; i++) {
+        document.getElementById("products2").style.width = "420px"
         addProductToProductList(data[i], "products2");
     }
 
