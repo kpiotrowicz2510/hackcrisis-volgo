@@ -455,46 +455,60 @@ function initRealizationMap() {
 
     directionsDisplay.setMap(map);
 
-
-    polyToGo = new google.maps.Polyline({
-        path: carCoords.reverse(),
-        strokeColor: '#7af442',
-        strokeOpacity: 1.0,
-        strokeWeight: 3,
-      });
-      
-    polyTraveled = new google.maps.Polyline({
-        path: [ carCoords[carCoords.length-1] ],
-        strokeColor: '#000000',
-        strokeOpacity: 1.0,
-        strokeWeight: 3,
-        icons: [{
-            icon: carSymbol,
-            offset: '100%'
-          }],
-      });
-      
-    polyToGo.setMap(map);
-    polyTraveled.setMap(map);
-
-    var i = 0;                    
-
-    function loopCar () {          
+    $('#realizationStatus .statusName').text('Wyszukiwanie kierowcy');
+    $('#realizationStatus .statusTime').html("Przewidywany czas: <span id='realizationTime'>~0:20</span>");
+    
     setTimeout(function () {
-        calculateAndDisplayRoute();    
-        updateTime(i);  
-        i++;                     
-        if (i < carCoords.length-1) {           
-            loopCar();             
-        } 
-    }, 500)
-    }
 
-    loopCar();     
+        $('#realizationStatus .statusName').text('Zamówienie przyjęte');
+        $('#realizationStatus .statusTime').html("...");
+
+        setTimeout(function () {
+
+            $('#realizationStatus .statusName').text('Zamównienie w realizacji');
+            $('#realizationStatus .statusTime').html("Przewidywany czas: <span id='realizationTime'>1:20</span>");
+            polyToGo = new google.maps.Polyline({
+                path: carCoords.reverse(),
+                strokeColor: '#7af442',
+                strokeOpacity: 1.0,
+                strokeWeight: 3,
+            });
+
+            polyTraveled = new google.maps.Polyline({
+                path: [carCoords[carCoords.length - 1]],
+                strokeColor: '#000000',
+                strokeOpacity: 1.0,
+                strokeWeight: 3,
+                icons: [{
+                    icon: carSymbol,
+                    offset: '100%'
+                }],
+            });
+
+            polyToGo.setMap(map);
+            polyTraveled.setMap(map);
+
+            var i = 0;
+
+            function loopCar() {
+                setTimeout(function () {
+                    calculateAndDisplayRoute();
+                    updateTime(i);
+                    i++;
+                    if (i < carCoords.length - 1) {
+                        loopCar();
+                    }
+                }, 500)
+            }
+
+            loopCar();   
+
+        }, 2500);
+    }, 5000);  
   }
 function updateTime(i){
     var realTime = "1:20";
-    var time = 120 - i;
+    var time = Math.floor((120 - i) / 2);
     var minutes = Math.floor(time/60);
     var secs = time - minutes*60;
     if(secs<10){
