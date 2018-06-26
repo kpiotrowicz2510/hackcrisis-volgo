@@ -173,10 +173,7 @@ function addNewOrderToBasket(id,amount){
 }
 
 function loadMZData(){
-    $.ajax("http://capap.gispartner.pl/maps/493/FeatureServer/0/query?f=geojson&outFields=swiadczeniodawca%2Cmiejscowosc%2Cadres_swiadczeniodawca&where=1=1")
-            .done(function(data){
-                console.log(data);
-            });
+    
 }
 
 app.initialize();
