@@ -499,6 +499,15 @@ function initRealizationMap() {
             loopCar();             
         } 
         else{
+            polyToGo.map = null;
+
+            var path2 = polyTraveled.getPath();
+            
+            while (path2.getLength() > 8){
+                path2.removeAt(0);
+            }
+    
+            polyTraveled.setPath(path2);
             realizationFinished();
         }
     }, 150)
