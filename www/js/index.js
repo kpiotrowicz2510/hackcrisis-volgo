@@ -54,7 +54,12 @@ function getProduct(id){
 function loadOneProduct(data) {
     $('#productImage').attr("src", data.image);
     $("#productTitle").text(data.name);
-    $("#productPrice").text(parseFloat(Math.round(data.price * 100) / 100).toFixed(2) + " zł");
+    if (data.priceDiscount != 0.0) {
+        document.getElementById("productPrice").innerHTML = "<strike>" + parseFloat(Math.round(data.price * 100) / 100).toFixed(2) + " zł</strike> " + parseFloat(Math.round(data.priceDiscount * 100) / 100).toFixed(2) + " zł";
+    }
+    else {
+        document.getElementById("productPrice").innerHTML = parseFloat(Math.round(data.price * 100) / 100).toFixed(2) + " zł";
+    }
     $("#productDescription").text(data.description);
     $('.addToCart').data('id', data.id);
 }
