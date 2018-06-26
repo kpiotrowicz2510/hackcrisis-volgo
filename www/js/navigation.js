@@ -12,6 +12,37 @@ let currentIndex = 1;
 
             let id = $(this).data('id');
             addNewOrderToBasket(id, 1);
+
+            $('.productFade').fadeIn(600);
+            $('.productFade .desc span').text($("#productTitle").text());
+            let right = $(this).css('right');
+            let top = $(this).css('top');
+            let background = $(this).css('background');
+
+            $(this).css('background', '#2ecc71');
+            $(this).animate({ right: "50%", top: "120%" }, 600, function () {
+                setTimeout(function () {
+                    $('#cartIcon').hide();
+                    $('.check').show();
+                    $('.check').css('stroke-dashoffset', 0);
+
+                    setTimeout(function () {
+
+                        $('.productsection .back').click();
+                        $('.productFade').fadeOut(600, function () {
+
+                            $('#cartIcon').show();
+                            $('.check').hide();
+                            $('.check').css('stroke-dashoffset', '130px');
+                            $('.addToCart').css('background', background);
+                            $('.addToCart').css('right', right);
+                            $('.addToCart').css('top', top);
+                        });
+
+                    }, 1000);
+                }, 500);
+            });
+
             return false;
         }
 
