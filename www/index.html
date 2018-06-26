@@ -44,36 +44,36 @@
                 }
             }
 
-            
+
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhyXfKuDiBfle8lVDqTCPjzO8S8h3In3A&callback=initMap" async defer></script>
 
 
         <a id="createOrder" href="#" data-section="productssection" data-function="getProducts" data-delay="300">
-                <span class="content">
-                    Stwórz zamównienie
-                </span>
-                <div class="icon">
-                    <img src="img/order.png" alt="order" />
-                </div>
-                <div class="separator">
+            <span class="content">
+                Stwórz zamównienie
+            </span>
+            <div class="icon">
+                <img src="img/order.png" alt="order" />
+            </div>
+            <div class="separator">
 
-                </div>
+            </div>
+        </a>
+
+        <div class="mapLinks">
+            <a class="link" href="#" data-section="usersection" data-direction="bottom">
+                <img src="img/cogs.png" alt="cogs" />
             </a>
 
-            <div class="mapLinks">
-                <a class="link" href="#" data-section="usersection" data-direction="bottom">
-                    <img src="img/cogs.png" alt="cogs" />
-                </a>
+            <a class="link" href="#" data-function="findMe">
+                <img src="img/finder.png" alt="finder" />
+            </a>
+        </div>
 
-                <a class="link" href="#" data-function="findMe">
-                    <img src="img/finder.png" alt="finder" />
-                </a>
-            </div>
-
-            <div id="mapMarker">
-                <img src="img/marker.png" alt="marker" />
-            </div>
+        <div id="mapMarker">
+            <img src="img/marker.png" alt="marker" />
+        </div>
     </div>
     <div class="app usersection">
         <a href="#" data-section="initsection" data-direction="top" class="close link">
@@ -228,7 +228,7 @@
             <div class="productsContainer">
                 <div id="products1" class="productsList"></div>
             </div>
-            
+
             <div class="productsLabels">
                 <div class="header">Promocje</div>
                 <div class="more">Więcej</div>
@@ -237,12 +237,12 @@
             <div class="productsContainer">
                 <div id="products2" class="productsList"></div>
             </div>
-            
+
             <div class="productsLabels">
                 <div class="header">Polecane dla Ciebie</div>
                 <div class="more">Więcej</div>
             </div>
-            
+
             <div class="productsContainer">
                 <div id="products3" class="productsList"></div>
             </div>
@@ -278,6 +278,34 @@
 
                 <svg class="checkIcon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="90.594px" height="59.714px" viewBox="0 0 90.594 59.714" enable-background="new 0 0 90.594 59.714" xml:space="preserve">
                 <polyline class="check" fill="none" stroke="white" stroke-width="10" stroke-miterlimit="10" points="1.768,23.532 34.415,56.179 88.826,1.768" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -400,6 +428,24 @@
         </div>
 
     </div>
+    
+    <div class="modal realizationModal" style="display: none;">
+        <a href="#" data-section="initsection" data-direction="top" class="modalClose link">
+            <img src="img/close.png" alt="close" />
+        </a>
+
+        <div class="icon">
+            <img src="img/car.png" alt="car" />
+        </div>
+
+        <div class="status">
+            Dostawca dojechał na wyznaczone miejsce samochodem <b>Ford Focus</b> o nr rejestracyjnym <b>GDA 1234R</b>. <br /><br />Zamówienie <b>#16235</b> zostało zrealizowane pomyślnie!
+        </div>
+
+        <a href="#" class="modalClose backCloseButton">
+            &larr; Powrót
+        </a>
+    </div>
 
 
     <div class="app realizationsection">
@@ -419,6 +465,7 @@
             <div class="statusName pulsate">Zamównienie w realizacji</div>
             <div class="statusTime">Przewidywany czas: <span id='realizationTime'>1:20</span></div>
         </div>
+
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>

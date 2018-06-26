@@ -147,11 +147,7 @@ function realization() {
 }
 
 function realizationFinished() {
-    let p = $('.bouncingBall .ball');
-    let left = p.offset().left;
-    let top = p.offset().top;
-
-    console.log('todo');
+    $('.realizationModal').fadeIn();
 }
 
 function initRealizationMap() {
