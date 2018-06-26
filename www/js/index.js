@@ -112,6 +112,7 @@ function loadOrder(){
         url: GLOBALS_siteUrl+"basket",
     }).done(function(response) {
         loadOrderData(response.items);
+        $("#cartSize").text(response.items.length);
     });
 }
 
@@ -153,7 +154,7 @@ function addNewOrderToBasket(id,amount){
         url: GLOBALS_siteUrl+"basket/products",
         data:objectx
     }).done(function(response) {
-        
+        loadOrder();
     });
 }
 
