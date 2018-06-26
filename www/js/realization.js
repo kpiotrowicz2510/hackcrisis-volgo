@@ -129,10 +129,21 @@ var marker;
 
 var carSymbol;
 
+function clearBasket(){
+    $.ajax({
+        method: "DELETE",
+        url: GLOBALS_siteUrl+"basket/products",
+    }).done(function(response) {
+        loadOrder();
+    });
+}
+
 function realization() {
 
     $('.modal').fadeOut();
                 initRealizationMap();
+
+    clearBasket();
 }
 
 function realizationFinished() {
