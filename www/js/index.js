@@ -139,7 +139,7 @@ function loadOrderProduct(data,amount){
         div.appendChild(name);
         var price = document.createElement("div");
         price.className="price";
-        price.innerHTML = (data.price*amount)+"zł";
+        price.innerHTML = parseFloat(Math.round((data.price * amount) * 100) / 100).toFixed(2) + "zł";
         div.appendChild(price);
         document.getElementById("productsOrder").appendChild(div);
 }

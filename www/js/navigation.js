@@ -28,9 +28,9 @@ let currentIndex = 1;
 
                     setTimeout(function () {
 
+                        $('.productsection .back').click();
                         $('.productFade').fadeOut(600, function () {
 
-                            $('.productsection .back').click();
                             $('#cartIcon').show();
                             $('.check').hide();
                             $('.check').css('stroke-dashoffset', '130px');
