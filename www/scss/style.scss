@@ -1,0 +1,1034 @@
+$wetAsphalt: #34495e;
+$asbestos: #7f8c8d;
+$peterRiver: #3498db;
+$belizeHole: #2980b9;
+$silver: #bdc3c7;
+$bgColor: white;
+$midnightBlue: #2c3e50;
+* {
+    box-sizing: border-box;
+}
+
+#productTitle {
+    margin: 0 5vh;
+}
+
+#productPrice {
+    margin: 0 5vh;
+}
+
+#productDescription {
+    margin: 2vh 5vh;
+    font-weight: 400;
+}
+
+img {
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 62.5%;
+    font-family: Montserrat;
+    overflow: hidden;
+}
+
+.app {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    overflow: hidden;
+    display: none;
+}
+
+.close, .modalClose {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 1002;
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.back {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 1002;
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.usersection, .productssection {
+    background: $bgColor;
+}
+
+
+.user {
+    margin: 30px 0 0 0;
+    overflow: auto;
+
+    .name {
+        text-align: center;
+        color: $wetAsphalt;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .location {
+        margin: 2px 0 0 0;
+        text-align: center;
+        color: $asbestos;
+        font-size: 0.75rem;
+    }
+
+    .avatar {
+        margin: 20px 0;
+        position: relative;
+        height: 120px;
+
+        .photo {
+            width: 100px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50px) translateY(-50px);
+            border-radius: 50%;
+        }
+
+        .country {
+            width: 30px;
+            height: 20px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(20px) translateY(30px);
+            box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    .nickname {
+        color: $belizeHole;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1rem;
+    }
+
+    .stats {
+        text-align: center;
+        margin: 40px 0 20px 0;
+
+        .stat {
+            width: 50%;
+            float: left;
+
+            .desc {
+                color: $silver;
+                text-transform: uppercase;
+                font-weight: 500;
+                font-size: 0.9rem;
+                margin: 0 0 4px 0;
+            }
+
+            .amount {
+                font-size: 1rem;
+                color: $wetAsphalt;
+                letter-spacing: 3px;
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+.bottomContainer {
+    margin: 20px 0 0 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    .siusiu {
+        position: relative;
+        width: 100%;
+        height: 100px;
+        background: #f3f3f3;
+
+        $widthSpacer: 100vw;
+
+        .down {
+            border-color: $peterRiver;
+        }
+
+        .left {
+            left: 50vw - $widthSpacer;
+        }
+
+        .right {
+            right: 50vw - $widthSpacer;
+        }
+
+        * {
+            position: absolute;
+            width: 50%;
+        }
+
+        .left.bg {
+            border-top: 20px solid $bgColor;
+            border-left: $widthSpacer solid transparent;
+            z-index: 1002;
+        }
+
+        .right.bg {
+            border-top: 20px solid $bgColor;
+            border-right: $widthSpacer solid transparent;
+            z-index: 1002;
+        }
+
+        .left.up {
+            top: 10px;
+            border-top: 20px solid $belizeHole;
+            border-left: $widthSpacer solid transparent;
+            z-index: 1001;
+        }
+
+        .left.up {
+            top: 10px;
+            border-top: 20px solid $belizeHole;
+            border-right: $widthSpacer solid transparent;
+            z-index: 1001;
+        }
+
+        .left.down {
+            top: 20px;
+            border-top: 20px solid $peterRiver;
+            border-left: $widthSpacer solid transparent;
+            z-index: 1000;
+        }
+
+        .left.down {
+            top: 20px;
+            border-top: 20px solid $peterRiver;
+            border-right: $widthSpacer solid transparent;
+            z-index: 1000;
+        }
+    }
+
+
+    .links {
+        background: #f3f3f3;
+
+        .linkSpacer {
+            background: $silver;
+            height: 1px;
+            width: calc(100% - 20px);
+            margin: 0 auto;
+        }
+
+        .link {
+            text-decoration: none;
+            padding: 8px 10px;
+            display: block;
+            overflow: auto;
+
+            .linkName {
+                color: $peterRiver;
+                font-size: 0.9rem;
+                float: left;
+                line-height: 22px;
+            }
+
+            .linkValue {
+                color: $asbestos;
+                float: right;
+                font-size: 0.9rem;
+                line-height: 22px;
+                padding: 0 10px 0 0;
+
+                img {
+                    height: 20px;
+                    line-height: 22px;
+                }
+            }
+
+            .linkArrow {
+                float: right;
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+    }
+}
+
+#map, #realizationMap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+#createOrder {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-40vw);
+    width: 80vw;
+    background: white;
+    top: 20px;
+    border-radius: 2px;
+    color: black;
+
+    .content {
+        display: block;
+        float: left;
+        font-size: 1.05rem;
+        line-height: 32px;
+        margin: 4px 0 4px 10px;
+    }
+
+    .icon img {
+        width: 26px;
+        height: 26px;
+        float: right;
+        margin: 7px;
+    }
+
+    .separator {
+        float: right;
+        width: 1px;
+        height: 32px;
+        background: $silver;
+        margin: 4px 0;
+    }
+
+    transition: all 0.3s;
+    box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.2);
+
+    &:active {
+        box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.2);
+        top: 21px;
+        background: white;
+    }
+}
+
+
+
+
+
+#mapMarker {
+    $size: 36px;
+
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: $size;
+        height: $size;
+        transform: translateX(-$size/2) translateY(-$size);
+    }
+}
+
+.mapLinks {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+    .link {
+        margin-left: 10px;
+        width: 40px;
+        height: 40px;
+        background: $bgColor;
+        box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.6);
+        float: right;
+        border-radius: 5px;
+        transition: background 0.2s, filter 0.2s;
+
+        img {
+            width: 24px;
+            height: 24px;
+            margin: 8px;
+        }
+    }
+
+    .link:active {
+        background: darken($bgColor, 20%);
+        filter: invert(100%);
+    }
+}
+
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 2001;
+
+    .modalClose {
+
+        img {
+            filter: invert(100%);
+        }
+    }
+}
+
+.receipt {
+    position: relative;
+    width: 80vw;
+    min-height: 30vh;
+    margin: 80px auto 0;
+    background: $bgColor;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px 5px 0 0;
+
+    &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 10px;
+        bottom: -10px;
+        left: 0;
+        background-image: linear-gradient(45deg, rgba(0, 0, 0, 0) 33.333%, $bgColor 33.333%, $bgColor 66.667%, rgba(0, 0, 0, 0) 66.667%), linear-gradient(-45deg, rgba(0, 0, 0, 0) 33.333%, $bgColor 33.333%, $bgColor 66.667%, rgba(0, 0, 0, 0) 66.667%);
+        background-size: 20px 40px;
+        background-position: 50% -30px;
+        background-repeat: repeat-x;
+        z-index: 1001;
+    }
+
+    .receiptHeader {
+        padding-top: 10px;
+        overflow: auto;
+    }
+
+    .brand {
+        margin: 6px 0 0 6px;
+        float: left;
+        overflow: auto;
+
+        img {
+            float: left;
+            width: 40px;
+            height: 40px;
+        }
+
+        .brandText {
+            float: left;
+            line-height: 40px;
+            font-size: 1.4rem;
+            margin-left: 12px;
+        }
+    }
+
+    .timestamp {
+        float: right;
+        color: $silver;
+        font-weight: 500;
+        font-size: 0.8rem;
+        text-align: right;
+        margin: 14px 10px 0 0;
+
+        .time {
+            margin-top: 4px;
+        }
+    }
+
+    .orderName {
+        clear: both;
+        margin: 30px 10px 20px;
+        font-weight: 500;
+        font-size: 1.1rem;
+    }
+
+    .products {
+        margin: 12px 12px;
+
+        .product {
+            font-size: 0.9rem;
+            overflow: auto;
+            padding: 2px 0;
+
+            .name {
+                float: left;
+                width: 76%;
+
+                .info {
+                    color: $silver;
+                }
+            }
+
+            .price {
+                float: left;
+                width: 24%;
+            }
+        }
+
+        .separator {
+            width: 100%;
+            border-bottom: 1px dashed $silver;
+            margin: 10px 0;
+        }
+
+        .summary {
+            font-weight: 600;
+            font-size: 0.9rem;
+            overflow: auto;
+            padding-bottom: 20px;
+
+            .total {
+                float: left;
+                width: 70%;
+                line-height: 1.8rem;
+            }
+
+            .price {
+                float: left;
+                width: 30%;
+                text-align: center;
+
+                .additionalInfo {
+                    display: block;
+                    color: $peterRiver;
+                }
+            }
+        }
+    }
+}
+
+.paymentCards {
+
+    .card {
+        background: #34495e;
+        background: -moz-linear-gradient(-45deg, #34495e 0%, #2c3e50 100%);
+        background: -webkit-linear-gradient(-45deg, #34495e 0%,#2c3e50 100%);
+        background: linear-gradient(135deg, #34495e 0%,#2c3e50 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#34495e', endColorstr='#2c3e50',GradientType=1 );
+        border-radius: 10px;
+        width: 80vw;
+        position: relative;
+        height: 175px;
+        margin: 35px auto 10px;
+        font-size: 0.8rem;
+        color: white;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+        display: block;
+        text-decoration: none;
+        transition: all .2s ease-in-out;
+
+        &:active {
+            transform: scale(0.95);
+        }
+
+        img {
+            height: 30px;
+            margin: 15px 5px 5px 15px;
+        }
+
+        .cardNumber {
+            text-align: center;
+            font-size: 1.3rem;
+            margin: 15px 0;
+        }
+
+        .title {
+            color: $silver;
+            text-transform: uppercase;
+            padding-bottom: 5px;
+            font-size: 0.7rem;
+        }
+
+        .value {
+            text-transform: uppercase;
+            font-size: 1rem;
+        }
+
+        .cardHolder, .cardExpiry {
+            float: left;
+            width: 60%;
+            padding: 20px 20px 10px 20px;
+        }
+
+        .cardExpiry {
+            width: 40%;
+            text-align: right;
+        }
+    }
+
+    .creditFont {
+        font-family: Inconsolata;
+    }
+}
+
+.hello {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 14px 6px 4px 6px;
+}
+
+.search {
+    border-bottom: 1px solid black;
+    margin: 20px 14px 30px;
+    overflow: auto;
+
+    img {
+        height: 20px;
+        float: left;
+        width: 20px;
+        margin: 1px;
+    }
+
+    input {
+        float: left;
+        width: calc(100% - 22px);
+        border: 0;
+        font-size: 0.9rem;
+        line-height: 22px;
+        padding-left: 8px;
+        outline: none;
+    }
+}
+
+.scrollwrapper {
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.header {
+    font-size: 1.1rem;
+    font-weight: 700;
+    float: left;
+    width: 80%;
+    margin-bottom: 8px;
+}
+
+.more {
+    float: left;
+    width: 20%;
+    text-align: right;
+    font-weight: 600;
+    font-size: 0.8rem;
+    line-height: 1.1rem;
+    color: $belizeHole;
+    padding-right: 5px;
+}
+
+.productsLabels {
+    margin: 0 8px;
+    width: 95%;
+    display: inline-block;
+}
+
+.productsContainer {
+    margin: 10px 6px 10px 6px;
+    overflow: auto;
+
+    .productsList {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        clear: left;
+        height: 200px;
+
+        .productsItem {
+            float: left;
+            width: 140px;
+            text-decoration: none;
+            color: black;
+            float: left;
+            display: inline-block;
+
+            img {
+                width: 140px;
+                height: 140px;
+            }
+
+            h2 {
+                font-weight: 400;
+                font-size: 0.8rem;
+                margin: 2px 0;
+            }
+
+            span {
+                display: block;
+                font-weight: 600;
+                font-size: 0.8rem;
+            }
+        }
+    }
+
+    &:last-of-type {
+        margin-bottom: 36px;
+    }
+}
+
+.productsection {
+    background: $bgColor;
+}
+
+.productsection {
+
+    .productFade {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.8);
+        display: none;
+        z-index: 1000;
+
+        .status {
+            position: absolute;
+            top: 350px;
+            color: white;
+            font-size: 1.1rem;
+            text-align: center;
+            width: 100vw;
+        }
+
+        .desc {
+            position: absolute;
+            top: 380px;
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+            width: 100vw;
+        }
+    }
+
+    .imageWrapper {
+        position: relative;
+
+        #productImage {
+            width: 60vw;
+            height: auto;
+            margin: 0 20vw;
+        }
+
+        .addToCart {
+            position: absolute;
+            bottom: 0;
+            right: 48px;
+            border-radius: 50%;
+            background: $wetAsphalt;
+            padding: 16px;
+            width: 56px;
+            height: 56px;
+            transform: translateX(28px);
+            transition: background-color 0.6s;
+            z-index: 1001;
+
+            img {
+                width: 24px;
+                height: 24px;
+                filter: invert(100%);
+            }
+        }
+    }
+
+    .availability {
+
+        .pharmacy {
+            width: 92vw;
+            margin: 0 auto;
+            display: inline-block;
+            margin: 1vh 5vh;
+
+            .icon {
+                float: left;
+                width: 12%;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            .data {
+                padding: 7px 18px;
+                font-size: 0.8rem;
+                float: left;
+                width: 60%;
+            }
+
+            .amount {
+                float: left;
+                width: 28%;
+                font-size: 1rem;
+                padding: 11px 0;
+
+                &.bad {
+                    color: red;
+                }
+
+                &.average {
+                    color: orange;
+                }
+
+                &.great {
+                    color: green;
+                }
+            }
+        }
+    }
+}
+
+.goToCart {
+    position: fixed;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-45vw);
+    width: 90vw;
+    background: $peterRiver;
+    border-radius: 5px;
+    color: $bgColor;
+    padding: 7px 0;
+    text-decoration: none;
+    border-bottom: 2px solid $wetAsphalt;
+    transition: all 0.3s;
+    box-shadow: 3px 2px 0 0 rgba(0, 0, 0, 0.2);
+
+    &:active {
+        border-bottom: 1px solid $midnightBlue;
+        box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.2);
+        background: darken($peterRiver, 30%);
+    }
+
+    .wrapper {
+        text-align: center;
+        font-size: 0.9rem;
+
+        img {
+            width: 22px;
+            height: 22px;
+            filter: invert(100%);
+            margin-right: 6px;
+        }
+    }
+}
+
+svg.checkIcon {
+    position: relative;
+    left: -2px;
+    top: 2px;
+}
+.check {
+    stroke-dasharray: 130px 130px;
+    stroke-dashoffset: 130px;
+    -webkit-transition: stroke-dashoffset 4.1s linear 0s;
+    transition: stroke-dashoffset 500ms ease-in-out;
+    transform: scale(0.35, 0.35);
+}
+
+strike + span {
+    display: inline !important;
+    color: $peterRiver;
+}
+
+#realizationStatus {
+    position: absolute;
+    bottom: 5px;
+    width: 90vw;
+    left: 50%;
+    transform: translateX(-45vw);
+    background: $bgColor;
+    border-radius: 2px;
+    box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.2);
+
+    $height: 50px;
+    $width: 50px;
+    $size: 1rem;
+
+    .wrapper {
+        float: left;
+        width: 16px;
+        margin: 0 12px;
+    }
+
+
+    .statusName {
+
+        margin-top: 8px;
+        font-size: 1rem;
+        -webkit-animation: pulsate 2s ease-out;
+        -webkit-animation-iteration-count: infinite;
+        opacity: 0.7;
+        text-transform: uppercase;
+    }
+
+    .statusTime {
+        font-size: 0.8rem;
+        color: $silver;
+        font-weight: 400;
+    }
+}
+
+@-webkit-keyframes pulsate {
+    0% {
+        color: $wetAsphalt;
+    }
+
+    50% {
+        color: black;
+    }
+
+    100% {
+        color: $wetAsphalt;
+    }
+}
+
+$height: 50px;
+$width: 50px;
+$size: 1rem;
+
+.bouncingBall {
+    width: $width;
+    height: $height;
+    margin: 0 auto;
+    position: relative;
+}
+
+.ball {
+    width: $size;
+    height: $size;
+    background: $peterRiver;
+    border-radius: 50%;
+    position: absolute;
+    top: $size * 0.5;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0% {
+        height: $size;
+        animation-timing-function: ease-in;
+    }
+
+    34% {
+        height: $size;
+        width: $size;
+    }
+
+    35% {
+        height: $size*0.75;
+        width: $size*1.07;
+        top: $size * 2;
+        animation-timing-function: ease-out;
+    }
+
+    45% {
+        height: $size;
+        width: $size;
+    }
+
+    90% {
+        top: $size * 0.5;
+    }
+
+    100% {
+        top: $size * 0.5;
+    }
+}
+
+.realizationModal {
+
+    .icon {
+        position: absolute;
+        left: 50%;
+        top: 30%;
+        transform: translateX(-29px) translateY(-29px);
+        background: #2ecc71;
+        border-radius: 50%;
+        padding: 10px;
+
+        img {
+            width: 60px;
+            height: 60px;
+            filter: invert(100%);
+            animation: shake 0.5s;
+            animation-iteration-count: 3;
+        }
+    }
+
+    .status {
+        text-align: center;
+        position: absolute;
+        top: 43%;
+        color: $bgColor;
+        font-size: 0.9rem;
+        width: 90vw;
+        margin-left: 5vw;
+    }
+
+    .backCloseButton {
+        position: absolute;
+        top: 65% !important;
+        width: 50vw;
+        left: 50%;
+        transform: translateX(-25vw);
+        border: 2px solid $bgColor;
+        padding: 7px 0;
+        text-align: center;
+        font-size: 1.2rem;
+        color: $bgColor;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+}
+
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
